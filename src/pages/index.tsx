@@ -1,11 +1,10 @@
-import Button from '@/components/Button/Button'
+import AppLayout from '@/layout/AppLayout'
 
 function Home() {
   return (
-    <>
-      <h1 className='text-3xl font-bold mb-4'>FrontEnd - Template</h1>
-      <Button>Click here</Button>
-    </>
+    <AppLayout>
+      <h1>Hola</h1>
+    </AppLayout>
   )
 }
 

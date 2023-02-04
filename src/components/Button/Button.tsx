@@ -23,7 +23,7 @@ function Button({
 }: ButtonProps) {
   return (
     <button
-      className={`flex items-center gap-3 px-4 py-2 rounded-md transition-colors duration-200 ${
+      className={`flex justify-center items-center gap-3 px-4 py-2 rounded-md transition-colors duration-200 ${
         isDisabled ? 'cursor-no-drop' : VARIANTS[variant]
       } ${className && className}`}
       disabled={isDisabled}
