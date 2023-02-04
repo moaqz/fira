@@ -15,7 +15,7 @@ function Navbar() {
           </ul>
         </div>
         <div className='hidden h-full sm:flex sm:items-center sm:gap-4'>
-          <Button>Login</Button>
+          <Button variant='gray'>Login</Button>
           <Button variant='pink'>Sign up</Button>
         </div>
         <NavbarMenu />

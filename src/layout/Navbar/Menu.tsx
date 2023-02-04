@@ -24,8 +24,8 @@ function NavbarMenu() {
             <NavbarLink href='/create' text='Create Poll' />
             <NavbarLink href='/demo' text='Demo' />
           </ul>
-          <div className='flex gap-3'>
-            <Button className='w-full'>Login</Button>
+          <div className='flex flex-col gap-3'>
+            <Button className='w-full' variant='gray'>Login</Button>
             <Button className='w-full' variant='pink'>
               Sign up
             </Button>

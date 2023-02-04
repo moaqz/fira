@@ -9,7 +9,9 @@ module.exports = {
           mantle: '#181825',
           subtext: '#bac2de',
           surface: '#313244',
-          mauve: '#cba6f7'
+          surface2: '#45475a',
+          mauve: '#cba6f7',
+          mauve2: '#cfb2f1'
         }
       }
     }

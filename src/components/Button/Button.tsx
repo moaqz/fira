@@ -5,12 +5,13 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   children?: ReactNode
   isDisabled?: boolean
   className?: string
-  variant?: 'ghost' | 'pink'
+  variant?: 'ghost' | 'pink' | 'gray'
 }
 
 const VARIANTS = {
   ghost: 'bg-transparent hover:bg-brand-surface text-white',
-  pink: 'bg-brand-mauve hover:bg-brand-pink text-black font-semibold'
+  gray: 'bg-brand-surface hover:bg-brand-surface2 text-white',
+  pink: 'bg-brand-mauve hover:bg-brand-mauve2 text-black font-semibold'
 }
 
 function Button({
