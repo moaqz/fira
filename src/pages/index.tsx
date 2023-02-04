@@ -1,9 +1,8 @@
 import Button from '@/components/Button/Button'
-import AppLayout from '@/layout/AppLayout'
 
 function Home() {
   return (
-    <AppLayout>
+    <>
       <div className='my-32 sm:my-40'>
         <div className='px-4'>
           <h1 className='font-semibold max-w-sm sm:max-w-xl mx-auto text-4xl leading-tight text-center sm:text-6xl'>
@@ -25,7 +24,7 @@ function Home() {
           </Button>
         </div>
       </div>
-    </AppLayout>
+    </>
   )
 }
 

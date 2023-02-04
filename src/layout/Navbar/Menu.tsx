@@ -3,6 +3,7 @@ import Button from '@components/Button/Button'
 import { useState } from 'react'
 import NavbarLink from './Link'
 import Logo from '@/components/Logo'
+import Auth from '@/components/Auth'
 
 function NavbarMenu() {
   const [isOpen, setIsOpen] = useState<boolean>(false)
@@ -25,10 +26,7 @@ function NavbarMenu() {
             <NavbarLink href='/demo' text='Demo' />
           </ul>
           <div className='flex flex-col gap-3'>
-            <Button className='w-full' variant='gray'>Login</Button>
-            <Button className='w-full' variant='pink'>
-              Sign up
-            </Button>
+            <Auth />
           </div>
         </div>
       )}

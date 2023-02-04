@@ -1,7 +1,7 @@
-import Button from '@components/Button/Button'
 import NavbarLink from './Link'
 import NavbarMenu from './Menu'
 import Logo from '@/components/Logo'
+import Auth from '@/components/Auth'
 
 function Navbar() {
   return (
@@ -15,8 +15,7 @@ function Navbar() {
           </ul>
         </div>
         <div className='hidden h-full sm:flex sm:items-center sm:gap-4'>
-          <Button variant='gray'>Login</Button>
-          <Button variant='pink'>Sign up</Button>
+          <Auth />
         </div>
         <NavbarMenu />
       </nav>
