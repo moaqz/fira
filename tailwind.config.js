@@ -16,7 +16,8 @@ module.exports = {
           surface: '#313244',
           surface2: '#45475a',
           mauve: '#cba6f7',
-          mauve2: '#cfb2f1'
+          mauve2: '#cfb2f1',
+          pink: '#f5c2e7'
         }
       }
     }

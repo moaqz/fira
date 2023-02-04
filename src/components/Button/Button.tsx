@@ -6,6 +6,7 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   isDisabled?: boolean
   className?: string
   variant?: 'ghost' | 'pink' | 'gray'
+  size?: 'medium' | 'large'
 }
 
 const VARIANTS = {
@@ -14,19 +15,25 @@ const VARIANTS = {
   pink: 'bg-brand-mauve hover:bg-brand-mauve2 text-black font-semibold'
 }
 
+const SIZES = {
+  medium: 'h-10 px-4',
+  large: 'h-12 px-6'
+}
+
 function Button({
   type = 'button',
   children,
   isDisabled = false,
   className = '',
   variant = 'ghost',
+  size = 'medium',
   ...props
 }: ButtonProps) {
   return (
     <button
-      className={`flex justify-center items-center gap-3 px-4 py-2 rounded-md transition-colors duration-200 ${
+      className={`flex justify-center items-center gap-3 rounded-md transition-colors duration-200 ${
         isDisabled ? 'cursor-no-drop' : VARIANTS[variant]
-      } ${className && className}`}
+      } ${className && className} ${SIZES[size]}`}
       disabled={isDisabled}
       type={type}
       {...props}
