@@ -6,3 +6,11 @@
   background-image: radial-gradient(circle at 1px 1px, #313244 1px, #11111b 0);
   background-size: 80px 80px;
 }
+
+@font-face {
+  font-family: "Satoshi";
+  src: url("/fonts/Satoshi.woff2") format("woff2");
+  font-style: normal;
+  font-weight: 300 900;
+  font-display: swap;
+}

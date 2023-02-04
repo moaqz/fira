@@ -1,8 +1,13 @@
+const { fontFamily } = require('tailwindcss/defaultTheme')
+
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: ['./src/**/*.{js,ts,jsx,tsx}'],
   theme: {
     extend: {
+      fontFamily: {
+        sans: ['Satoshi', ...fontFamily.sans]
+      },
       colors: {
         brand: {
           crust: '#11111b',
