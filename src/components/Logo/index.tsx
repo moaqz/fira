@@ -1,8 +1,10 @@
+import Link from 'next/link'
+
 function Logo() {
   return (
-    <a href='/' className='text-2xl font-bold'>
+    <Link href='/' className='text-2xl font-bold'>
       Fira
-    </a>
+    </Link>
   )
 }
 
