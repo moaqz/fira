@@ -1,5 +1,5 @@
 import { Menu, Cancel } from 'iconoir-react'
-import Button from '@components/Button/Button'
+import Button from '@/components/Button'
 import { useState } from 'react'
 import NavbarLink from './Link'
 import Logo from '@/components/Logo'

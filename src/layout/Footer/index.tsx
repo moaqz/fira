@@ -1,6 +1,6 @@
 function Footer() {
   return (
-    <div className='fixed bottom-0 mt-6 mb-6 w-full text-brand-subtext flex justify-center'>
+    <div className='fixed bottom-0 flex justify-center w-full mt-6 mb-6 text-brand-subtext'>
       <a
         href='https://github.com/techwithmat/fira'
         target='_blank'
