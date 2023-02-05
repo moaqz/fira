@@ -1,3 +1,5 @@
+> 🚧 Project under construction
+
 ## 👋 Introduction
 
 [**Fira**](https://fira.vercel.app/) is a poll maker application.
