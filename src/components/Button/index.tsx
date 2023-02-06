@@ -32,7 +32,8 @@ function Button({
   return (
     <button
       className={`flex justify-center items-center gap-3 rounded-md transition-colors duration-200 ${
-        isDisabled ? 'cursor-no-drop' : VARIANTS[variant]
+        isDisabled && 'cursor-no-drop'
+      } ${VARIANTS[variant]}
       } ${className && className} ${SIZES[size]}`}
       disabled={isDisabled}
       type={type}
