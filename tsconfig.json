@@ -22,7 +22,8 @@
       "@lib/*": ["./src/lib/*"],
       "@pages/*": ["./src/pages/*"],
       "@config/*": ["./src/config/*"],
-      "@test/*": ["./src/test/*"]
+      "@test/*": ["./src/test/*"],
+      "@server/*": ["./src/server/*"]
     },
     "types": ["vitest/globals"]
   },

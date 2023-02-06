@@ -1,5 +1,5 @@
-import type { AppProps } from 'next/app'
-import { useState } from 'react'
+import type { AppType } from 'next/dist/shared/lib/utils'
+import type { Session } from 'next-auth'
 
 // Styles
 import '@/styles/globals.css'
@@ -10,20 +10,12 @@ import { IconoirProvider } from 'iconoir-react'
 // Layout
 import AppLayout from '@/layout/AppLayout'
 
-// Supabase
-import { createBrowserSupabaseClient } from '@supabase/auth-helpers-nextjs'
-import { SessionContextProvider, Session } from '@supabase/auth-helpers-react'
+// Auth
+import { SessionProvider } from 'next-auth/react'
 
-export default function App({
-  Component,
-  pageProps
-}: AppProps<{
-  initialSession: Session
-}>) {
-  const [supabase] = useState(() => createBrowserSupabaseClient())
-
+const App: AppType<{session: Session| null}> = ({ Component, pageProps: { session, ...pageProps } }) => {
   return (
-    <SessionContextProvider supabaseClient={supabase} initialSession={pageProps.initialSession}>
+    <SessionProvider session={session}>
       <IconoirProvider
         iconProps={{
           width: '1.5rem',
@@ -34,6 +26,8 @@ export default function App({
           <Component {...pageProps} />
         </AppLayout>
       </IconoirProvider>
-    </SessionContextProvider>
+    </SessionProvider>
   )
 }
+
+export default App

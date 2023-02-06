@@ -1,31 +1,19 @@
-import { useUser, useSupabaseClient } from '@supabase/auth-helpers-react'
 import Button from '@/components/Button'
-import { useRouter } from 'next/router'
+import { useSession, signIn, signOut } from 'next-auth/react'
 
 function Auth() {
-  const supabaseClient = useSupabaseClient()
-  const user = useUser()
-  const router = useRouter()
+  const { data: session } = useSession()
 
-  const handleLogout = () => {
-    supabaseClient.auth.signOut()
-    router.push('/')
-  }
-
-  const handleSignIn = () => {
-    supabaseClient.auth.signInWithOAuth({ provider: 'github' })
-  }
-
-  if (!user) {
+  if (!session) {
     return (
-      <Button variant='pink' onClick={handleSignIn}>
+      <Button variant='pink' onClick={() => signIn()}>
         Sign in with Github
       </Button>
     )
   }
 
   return (
-    <Button variant='pink' onClick={handleLogout}>
+    <Button variant='pink' onClick={() => signOut({ callbackUrl: '/' })}>
       Logout
     </Button>
   )
