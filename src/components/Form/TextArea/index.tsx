@@ -1,20 +1,19 @@
-import { TextareaHTMLAttributes } from 'react'
+/* eslint-disable react/display-name */
+import { forwardRef, Ref, TextareaHTMLAttributes } from 'react'
 
-interface TextAreaProps extends TextareaHTMLAttributes<HTMLTextAreaElement> {
-  id: string
-  classname?: string
-}
+const TextArea = forwardRef((
+  props: TextareaHTMLAttributes<HTMLTextAreaElement>,
+  ref: Ref<HTMLTextAreaElement>
+) => {
+  const { className } = props
 
-function TextArea({ id, className = '' }: TextAreaProps) {
   return (
     <textarea
-      name={id}
-      id={id}
-      className={`h-32 px-4 py-3 border rounded resize-none border-brand-surface bg-brand-crust focus:ring-1 focus:ring-brand-mauve focus:outline-none caret-brand-mauve ${
-        className && className
-      }`}
+      {...props}
+      ref={ref}
+      className={`h-32 px-4 py-3 border rounded resize-none border-brand-surface bg-brand-crust focus:ring-1 focus:ring-brand-mauve focus:outline-none caret-brand-mauve ${className}`}
     />
   )
-}
+})
 
 export default TextArea
