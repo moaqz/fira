@@ -16,6 +16,7 @@ export type CreatePollType = {
 export interface PollOptionProps {
   index: number
   register: UseFormRegister<CreatePollType>
+  errors: FieldErrors<CreatePollType>
   remove: UseFieldArrayRemove
   value: string
   disableRemove: boolean

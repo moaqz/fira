@@ -26,7 +26,16 @@ function Create() {
   })
 
   const onSubmit = (data: CreatePollType) => {
-    console.log(data)
+    fetch('/api/poll/create', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(data)
+    })
+      .then((res) => res.json())
+      .then((res) => console.log(res))
+      .catch((err) => console.error(err))
   }
 
   return (
@@ -44,8 +53,21 @@ function Create() {
             id='title'
             placeholder='Type your question here'
             aria-invalid={errors.title ? 'true' : 'false'}
-            {...(register('title'), { required: true, maxLength: 200 })}
+            {...register('title', {
+              required: 'You must include a title.',
+              maxLength: {
+                value: 200,
+                message: 'Title must contain a maximum of 200 characters'
+              }
+            })}
           />
+          {errors.title?.type === 'required' && (
+            <p className='text-red-500 text-bold'>{errors.title?.message}</p>
+          )}
+
+          {errors.title?.type === 'maxLength' && (
+            <p className='text-red-500 text-bold'>{errors.title?.message}</p>
+          )}
         </Stack>
 
         <Stack>

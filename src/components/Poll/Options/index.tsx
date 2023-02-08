@@ -12,7 +12,7 @@ import type { PollOptionsProps } from '@lib/types/poll'
 // External Libraries
 import { useFieldArray } from 'react-hook-form'
 
-function PollOptions({ control, register, maxOptions = 5 }: PollOptionsProps) {
+function PollOptions({ control, register, maxOptions = 5, errors }: PollOptionsProps) {
   const { fields, append, remove } = useFieldArray({
     control,
     name: 'options'
@@ -30,6 +30,7 @@ function PollOptions({ control, register, maxOptions = 5 }: PollOptionsProps) {
               remove={remove}
               value={field.text}
               register={register}
+              errors={errors}
               disableRemove={fields.length <= 2}
             />
           )
