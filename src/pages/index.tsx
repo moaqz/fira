@@ -1,9 +1,13 @@
 import Button from '@/components/Button'
+import Footer from '@/layout/Footer'
+import { useRouter } from 'next/router'
 
 function Home() {
+  const router = useRouter()
+
   return (
     <>
-      <div className='my-32 sm:my-40'>
+      <section className='my-32 sm:my-40'>
         <div className='px-4'>
           <h1 className='max-w-sm mx-auto text-4xl font-semibold leading-tight text-center sm:max-w-xl sm:text-6xl'>
             Create your poll and vote the{' '}
@@ -16,14 +20,12 @@ function Home() {
           </p>
         </div>
         <div className='flex items-center justify-center gap-2 mt-8'>
-          <Button variant='pink' size='large'>
+          <Button variant='pink' size='large' onClick={() => router.push('/create')}>
             Get Started
           </Button>
-          <Button variant='gray' size='large'>
-            View Examples
-          </Button>
         </div>
-      </div>
+      </section>
+      <Footer />
     </>
   )
 }
