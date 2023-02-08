@@ -10,8 +10,13 @@ import { useSession } from 'next-auth/react'
 // Lib
 import type { CreatePollType } from '@lib/types/poll'
 import { useForm } from 'react-hook-form'
+import { toast } from 'react-hot-toast'
+import { useState } from 'react'
+import { useRouter } from 'next/router'
 
 function Create() {
+  const [isLoading, setIsLoading] = useState<boolean>(false)
+  const router = useRouter()
   useSession({ required: true })
 
   const {
@@ -25,17 +30,26 @@ function Create() {
     }
   })
 
-  const onSubmit = (data: CreatePollType) => {
-    fetch('/api/poll/create', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(data)
-    })
-      .then((res) => res.json())
-      .then((res) => console.log(res))
-      .catch((err) => console.error(err))
+  const onSubmit = async (data: CreatePollType) => {
+    setIsLoading(true)
+    try {
+      const response = await fetch('/api/poll/create', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(data)
+      })
+
+      const id = await response.json()
+
+      router.push(`/poll/${id}`)
+    } catch (error) {
+      console.error(error)
+      toast.error('An error occurred while creating the poll')
+    } finally {
+      setIsLoading(false)
+    }
   }
 
   return (
@@ -79,7 +93,7 @@ function Create() {
 
         <PollOptions control={control} errors={errors} register={register} />
 
-        <Button variant='pink' className='w-full mt-4' type='submit'>
+        <Button variant='pink' className='w-full mt-4' type='submit' isLoading={isLoading}>
           Create Poll
         </Button>
       </form>

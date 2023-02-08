@@ -1,9 +1,11 @@
 import { ButtonHTMLAttributes, ReactNode } from 'react'
+import Loader from '@components/Icons/Loader'
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   type?: 'submit' | 'reset' | 'button'
   children?: ReactNode
   isDisabled?: boolean
+  isLoading?: boolean
   className?: string
   variant?: 'ghost' | 'pink' | 'gray'
   size?: 'medium' | 'large'
@@ -27,19 +29,26 @@ function Button({
   className = '',
   variant = 'ghost',
   size = 'medium',
+  isLoading = false,
   ...props
 }: ButtonProps) {
   return (
     <button
-      className={`flex justify-center items-center gap-3 rounded-md transition-colors duration-200 ${
-        isDisabled && 'cursor-no-drop'
-      } ${VARIANTS[variant]}
+      className={`flex justify-center items-center gap-3 rounded-md transition-colors duration-200 disabled:pointer-events-none disabled:opacity-75 ${
+        VARIANTS[variant]
       } ${className && className} ${SIZES[size]}`}
-      disabled={isDisabled}
+      disabled={isDisabled || isLoading}
       type={type}
       {...props}
     >
-      {children}
+      {!isLoading ? (
+        children
+      ) : (
+        <>
+          <Loader />
+          Loading...
+        </>
+      )}
     </button>
   )
 }
