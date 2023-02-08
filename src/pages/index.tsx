@@ -1,6 +1,7 @@
 import Button from '@/components/Button'
 import Footer from '@/layout/Footer'
 import { useRouter } from 'next/router'
+import { Rocket, BrightStar } from 'iconoir-react'
 
 function Home() {
   const router = useRouter()
@@ -19,10 +20,20 @@ function Home() {
             Can{"'"}t decide what to do? Create a poll and get answers in no time!
           </p>
         </div>
-        <div className='flex items-center justify-center gap-2 mt-8'>
+        <div className='flex flex-col items-center justify-center gap-2 mt-8 sm:flex-row'>
           <Button variant='pink' size='large' onClick={() => router.push('/create')}>
+            <Rocket className='rotate-45' />
             Get Started
           </Button>
+          <a
+            href='https://github.com/techwithmat/fira'
+            target='_blank'
+            rel='noreferrer'
+            className='flex items-center justify-center h-12 gap-3 px-6 text-white transition-colors duration-200 rounded-md bg-brand-surface hover:bg-brand-surface2'
+          >
+            <BrightStar />
+            Star on GitHub
+          </a>
         </div>
       </section>
       <Footer />
