@@ -11,7 +11,6 @@ function Navbar() {
           <Logo />
           <ul className='hidden h-full sm:flex sm:items-center sm:gap-x-8'>
             <NavbarLink href='/create' text='Create Poll' />
-            <NavbarLink href='/demo' text='Demo' />
           </ul>
         </div>
         <div className='hidden h-full sm:flex sm:items-center sm:gap-4'>

@@ -23,7 +23,6 @@ function NavbarMenu() {
           </div>
           <ul className='flex flex-col gap-4'>
             <NavbarLink href='/create' text='Create Poll' />
-            <NavbarLink href='/demo' text='Demo' />
           </ul>
           <div className='flex flex-col gap-3'>
             <Auth />
