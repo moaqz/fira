@@ -14,6 +14,12 @@ import { toast } from 'react-hot-toast'
 import { useState } from 'react'
 import { useRouter } from 'next/router'
 
+export function addDays(days: number) {
+  const result = new Date()
+  result.setDate(result.getDate() + days)
+  return result
+}
+
 function Create() {
   const [isLoading, setIsLoading] = useState<boolean>(false)
   const router = useRouter()
@@ -32,6 +38,7 @@ function Create() {
 
   const onSubmit = async (data: CreatePollType) => {
     setIsLoading(true)
+
     try {
       const response = await fetch('/api/poll/create', {
         method: 'POST',
@@ -89,6 +96,19 @@ function Create() {
             Description
           </Label>
           <TextArea id='description' {...register('description')} />
+        </Stack>
+
+        <Stack>
+          <Label id='end-date'>End date</Label>
+          <select
+            id='end-date'
+            className='w-full px-4 py-3 border rounded border-brand-surface bg-brand-crust focus:ring-1 focus:ring-brand-mauve focus:outline-none caret-brand-mauve text-brand-subtext'
+            {...register('endDate')}
+          >
+            <option value='5'>5 minutes</option>
+            <option value='10'>10 minutes</option>
+            <option value='15'>15 minutes</option>
+          </select>
         </Stack>
 
         <PollOptions control={control} errors={errors} register={register} />

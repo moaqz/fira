@@ -2,24 +2,26 @@ import type { NextApiRequest, NextApiResponse } from 'next'
 import prisma from '@/lib/prisma'
 import { getSession } from 'next-auth/react'
 
-// POST /api/poll/create
+export function generateEndDate(endDate: string) {
+  const endTime = Date.now() + parseInt(endDate) * 60 * 1000
+
+  return new Date(endTime)
+}
+
 async function handle(req: NextApiRequest, res: NextApiResponse) {
   const session = await getSession({ req })
 
   if (!session) {
-    return res.status(401).send({ message: 'Unauthorize' })
+    return res.status(401).send({ message: 'Unauthorize.' })
   }
 
-  const user = await prisma.user.findUnique({
-    where: { email: session?.user?.email as string }
-  })
+  const userId = session.user?.id
 
-  if (!user) {
-    return res.status(401).json({ message: 'Unauthorize' })
+  if (!userId) {
+    return res.status(401).send({ message: 'You must be signed in.' })
   }
 
-  const { title, description, options } = req.body
-  const userId = user.id
+  const { title, description, options, endDate } = req.body
 
   try {
     const { id } = await prisma.poll.create({
@@ -27,6 +29,7 @@ async function handle(req: NextApiRequest, res: NextApiResponse) {
         title,
         description,
         userId,
+        endsAt: generateEndDate(endDate),
 
         options: {
           create: options
