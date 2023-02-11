@@ -13,6 +13,16 @@ export const authOptions: NextAuthOptions = {
       clientSecret: process.env.GITHUB_CLIENT_SECRET as string
     })
   ],
+  callbacks: {
+    // Include user.id on session
+    session: ({ session, user }) => ({
+      ...session,
+      user: {
+        ...session.user,
+        id: user.id
+      }
+    })
+  },
   secret: process.env.SECRET
 }
 

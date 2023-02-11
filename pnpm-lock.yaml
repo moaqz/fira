@@ -15,6 +15,7 @@ specifiers:
   '@vitejs/plugin-react': 3.0.1
   '@vitest/coverage-c8': 0.27.1
   autoprefixer: 10.4.13
+  clsx: ^1.2.1
   eslint: 8.0.1
   eslint-config-standard-with-typescript: 27.0.1
   eslint-plugin-import: 2.25.2
@@ -60,6 +61,7 @@ devDependencies:
   '@vitejs/plugin-react': 3.0.1
   '@vitest/coverage-c8': 0.27.1_jsdom@21.0.0
   autoprefixer: 10.4.13_postcss@8.4.21
+  clsx: 1.2.1
   eslint: 8.0.1
   eslint-config-standard-with-typescript: 27.0.1_fyqlyxdphmxc6o53as7ph7cofi
   eslint-plugin-import: 2.25.2_eslint@8.0.1
@@ -1477,6 +1479,11 @@ packages:
       string-width: 4.2.3
       strip-ansi: 6.0.1
       wrap-ansi: 7.0.0
+    dev: true
+
+  /clsx/1.2.1:
+    resolution: {integrity: sha512-EcR6r5a8bj6pu3ycsa/E/cKVGuTgZJZdsyUYHOksG/UHIiKfjxzRxYJpyVBwYaQeOvghal9fcc4PidlgzugAQg==}
+    engines: {node: '>=6'}
     dev: true
 
   /color-convert/1.9.3:
