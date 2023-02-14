@@ -5,4 +5,6 @@ export const remainingMinutes = (endTime: string) => {
   return Math.floor(remainingTime / (60 * 1000))
 }
 
-// const isPollFinished = Date.now() >= new Date(endsAt).getMilliseconds()
+export const isPollFinished = (endTime: string) => {
+  return Date.now() >= new Date(endTime).getTime()
+}

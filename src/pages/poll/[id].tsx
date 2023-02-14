@@ -1,71 +1,78 @@
-import { GetServerSidePropsContext } from 'next'
 import { PollType } from '@lib/types/poll'
-import { PollStatus, PollOptionVote } from '@/components/Poll'
+import { PollStatus, PollOptionVote, PollLink } from '@/components/Poll'
 
-export default function Poll({ data }: { data: PollType }) {
-  const {
-    title,
-    description,
-    options,
-    endsAt,
-    user: { name }
-  } = data
+import { useRouter } from 'next/router'
+import { useState, useEffect } from 'react'
+import { isPollFinished } from '@/lib/dateUtilities'
+import Loader from '@/components/Loader'
 
-  const hasVoted = options.some((option) => option.UserVotes.length > 0)
+function Poll() {
+  const router = useRouter()
+  const pollId = '' + router.query.id ?? ''
 
-  // This is temporary. Change this from the API when joining the tables.
-  const totalVotes = options.reduce((a, b) => a + b.totalCount, 0)
+  const [data, setData] = useState<PollType | null>(null)
+
+  useEffect(() => {
+    if (!pollId) return
+
+    const fetchData = async () => {
+      const response = await fetch(`http://localhost:3000/api/poll/${pollId}`)
+      const data = await response.json()
+
+      if (!data) {
+        console.error('error fetching data')
+      }
+
+      setData(data)
+    }
+
+    fetchData()
+  }, [pollId])
+
+  if (!data) {
+    return <Loader text='Loading Poll Information.' />
+  }
+
+  const hasVoted = data.options.some((option) => option.userVotes.length > 0)
+  const totalVotes = data.options.reduce((a, b) => a + b.totalCount, 0)
+  const hasEnded = isPollFinished(data.endsAt)
+
+  console.log(hasEnded)
 
   return (
-    <div className='max-w-3xl p-4 mx-auto my-12 space-y-6 border border-brand-surface bg-brand-mantle sm:rounded sm:p-6'>
-      <header className='flex flex-col sm:flex-row justify-between gap-4'>
-        <div className='flex flex-col flex-1 order-1 sm:-order-1'>
-          <h1 className='text-xl'>{title}</h1>
-          <p className='text-brand-subtext'>{description}</p>
+    <>
+      <div className='max-w-3xl p-4 mx-auto mt-12 space-y-6 border border-brand-surface bg-brand-mantle sm:rounded sm:p-6'>
+        <header className='flex flex-col sm:flex-row justify-between gap-4'>
+          <div className='flex flex-col flex-1 order-1 sm:-order-1'>
+            <h1 className='text-xl'>{data?.title}</h1>
+            <p className='text-brand-subtext'>{data.description}</p>
+          </div>
+          <PollStatus endDate={data?.endsAt} />
+        </header>
+        <div className='flex flex-col gap-3'>
+          {data?.options?.map((option) => {
+            return (
+              <PollOptionVote
+                key={option.id}
+                id={option.id}
+                text={option.text}
+                totalCount={option.totalCount}
+                pollId={option.pollId}
+                userVotes={option.userVotes}
+                disabled={hasVoted || hasEnded}
+                totalVotes={totalVotes}
+              />
+            )
+          })}
         </div>
-        <PollStatus endDate={endsAt} />
-      </header>
-      <div className='flex flex-col gap-3'>
-        {options?.map((option) => {
-          return (
-            <PollOptionVote
-              key={option.id}
-              id={option.id}
-              text={option.text}
-              totalCount={option.totalCount}
-              pollId={option.pollId}
-              UserVotes={option.UserVotes}
-              disabled={hasVoted}
-              totalVotes={totalVotes}
-            />
-          )
-        })}
+        <footer>
+          <p className='text-brand-subtext mt-1'>Created by {data.user.name}</p>
+        </footer>
       </div>
-      <footer>
-        <p className='text-brand-subtext mt-1'>Created by {name}</p>
-      </footer>
-    </div>
+
+      <PollLink id={pollId} />
+    </>
   )
 }
 
-export async function getServerSideProps(ctx: GetServerSidePropsContext) {
-  const id = ctx.params?.id
-
-  const response = await fetch(`http://localhost:3000/api/poll/${id}`)
-  const data = await response.json()
-
-  if (!data) {
-    return {
-      redirect: {
-        destination: '/404',
-        permanent: false
-      }
-    }
-  }
-
-  return {
-    props: {
-      data
-    }
-  }
-}
+export default Poll

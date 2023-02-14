@@ -13,18 +13,18 @@ function PollOptionVote({
   totalCount,
   pollId,
   id,
-  UserVotes,
+  userVotes,
   disabled,
   totalVotes
 }: PollOptionVoteProps) {
-  const [hasVotedOption, setHasVotedOption] = useState(UserVotes[0]?.pollOptionId === id)
+  const [hasVotedOption, setHasVotedOption] = useState(userVotes[0]?.pollOptionId === id)
   const percent = totalCount ? Math.round((totalCount * 100) / totalVotes) : 0
 
   const handleVote = async () => {
     setHasVotedOption(true)
 
     try {
-      await fetch('/api/poll/vote', {
+      const response = await fetch('/api/poll/vote', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
@@ -34,6 +34,10 @@ function PollOptionVote({
           pollOptionId: id
         })
       })
+
+      if (!response.ok) {
+        throw new Error()
+      }
     } catch (error) {
       console.error(error)
       toast.error('An error occurred while voting')
