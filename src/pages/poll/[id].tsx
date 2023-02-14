@@ -1,9 +1,8 @@
-import { PollType } from '@lib/types/poll'
-import { PollStatus, PollOptionVote, PollLink } from '@/components/Poll'
+import type { PollType } from '@lib/types/poll'
+import { PollStatus, PollLink, PollOptionsList } from '@/components/Poll'
 
 import { useRouter } from 'next/router'
 import { useState, useEffect } from 'react'
-import { isPollFinished } from '@/lib/dateUtilities'
 import Loader from '@/components/Loader'
 
 function Poll() {
@@ -33,12 +32,6 @@ function Poll() {
     return <Loader text='Loading Poll Information.' />
   }
 
-  const hasVoted = data.options.some((option) => option.userVotes.length > 0)
-  const totalVotes = data.options.reduce((a, b) => a + b.totalCount, 0)
-  const hasEnded = isPollFinished(data.endsAt)
-
-  console.log(hasEnded)
-
   return (
     <>
       <div className='max-w-3xl p-4 mx-auto mt-12 space-y-6 border border-brand-surface bg-brand-mantle sm:rounded sm:p-6'>
@@ -49,22 +42,7 @@ function Poll() {
           </div>
           <PollStatus endDate={data?.endsAt} />
         </header>
-        <div className='flex flex-col gap-3'>
-          {data?.options?.map((option) => {
-            return (
-              <PollOptionVote
-                key={option.id}
-                id={option.id}
-                text={option.text}
-                totalCount={option.totalCount}
-                pollId={option.pollId}
-                userVotes={option.userVotes}
-                disabled={hasVoted || hasEnded}
-                totalVotes={totalVotes}
-              />
-            )
-          })}
-        </div>
+        <PollOptionsList endsAt={data.endsAt} options={data.options} />
         <footer>
           <p className='text-brand-subtext mt-1'>Created by {data.user.name}</p>
         </footer>

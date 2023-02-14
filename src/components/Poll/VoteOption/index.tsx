@@ -6,6 +6,7 @@ import { toast } from 'react-hot-toast'
 interface PollOptionVoteProps extends OptionType {
   disabled: boolean
   totalVotes: number
+  setHasVoted: (hasVoted: boolean) => void
 }
 
 function PollOptionVote({
@@ -15,13 +16,15 @@ function PollOptionVote({
   id,
   userVotes,
   disabled,
-  totalVotes
+  totalVotes,
+  setHasVoted
 }: PollOptionVoteProps) {
   const [hasVotedOption, setHasVotedOption] = useState(userVotes[0]?.pollOptionId === id)
   const percent = totalCount ? Math.round((totalCount * 100) / totalVotes) : 0
 
   const handleVote = async () => {
     setHasVotedOption(true)
+    setHasVoted(true)
 
     try {
       const response = await fetch('/api/poll/vote', {
@@ -38,10 +41,13 @@ function PollOptionVote({
       if (!response.ok) {
         throw new Error()
       }
+
+      toast.success('Vote added successfully!')
     } catch (error) {
       console.error(error)
-      toast.error('An error occurred while voting')
+      toast.error('An error occurred while adding your vote')
       setHasVotedOption(false)
+      setHasVoted(false)
     }
   }
 
