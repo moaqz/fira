@@ -1,6 +1,7 @@
 import type { NextApiRequest, NextApiResponse } from 'next'
 import prisma from '@/lib/prisma'
-import { getSession } from 'next-auth/react'
+import { getServerSession } from 'next-auth'
+import { authOptions } from '../auth/[...nextauth]'
 
 export function generateEndDate(endDate: string) {
   const endTime = Date.now() + parseInt(endDate) * 60 * 1000
@@ -8,8 +9,8 @@ export function generateEndDate(endDate: string) {
   return new Date(endTime)
 }
 
-async function handle(req: NextApiRequest, res: NextApiResponse) {
-  const session = await getSession({ req })
+export default async (req: NextApiRequest, res: NextApiResponse) => {
+  const session = await getServerSession(req, res, authOptions)
 
   if (!session) {
     return res.status(401).send({ message: 'Unauthorize.' })
@@ -43,5 +44,3 @@ async function handle(req: NextApiRequest, res: NextApiResponse) {
     return res.status(500).json('Internal Server Error')
   }
 }
-
-export default handle

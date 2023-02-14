@@ -41,7 +41,7 @@ export type OptionType = {
   text: string
   totalCount: number
   pollId: string
-  UserVotes: UserVotes[]
+  userVotes: UserVotes[]
 }
 
 export type UserType = {

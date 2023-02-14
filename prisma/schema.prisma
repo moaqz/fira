@@ -87,7 +87,7 @@ model PollOption {
   Poll   Poll?   @relation(fields: [pollId], references: [id], onDelete: Cascade)
   pollId String?
 
-  UserVotes PollOptionVote[]
+  userVotes PollOptionVote[]
 
   @@index([pollId])
 }

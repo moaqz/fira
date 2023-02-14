@@ -1,9 +1,10 @@
 import type { NextApiRequest, NextApiResponse } from 'next'
 import prisma from '@/lib/prisma'
-import { getSession } from 'next-auth/react'
+import { getServerSession } from 'next-auth'
+import { authOptions } from '../auth/[...nextauth]'
 
-async function handle(req: NextApiRequest, res: NextApiResponse) {
-  const session = await getSession({ req })
+export default async (req: NextApiRequest, res: NextApiResponse) => {
+  const session = await getServerSession(req, res, authOptions)
 
   if (!session) {
     return res.status(401).send({ message: 'Unauthorize.' })
@@ -49,5 +50,3 @@ async function handle(req: NextApiRequest, res: NextApiResponse) {
     return res.status(500).json('Unable to vote on poll at this time.')
   }
 }
-
-export default handle
