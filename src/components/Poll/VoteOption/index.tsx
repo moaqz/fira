@@ -1,4 +1,4 @@
-import { OptionType } from '@lib/types/poll'
+import { OptionType } from '@/types/poll'
 import clsx from 'clsx'
 import { useState } from 'react'
 import { toast } from 'react-hot-toast'

@@ -1,4 +1,4 @@
-import { OptionType } from '@lib/types/poll'
+import { OptionType } from '@/types/poll'
 import { PollOptionVote } from '@/components/Poll'
 
 import { useState } from 'react'

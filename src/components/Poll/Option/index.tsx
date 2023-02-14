@@ -5,7 +5,7 @@ import { Cancel } from 'iconoir-react'
 import { Input } from '@components/Form'
 
 // Types & Constants
-import type { PollOptionProps } from '@lib/types/poll'
+import type { PollOptionProps } from '@/types/poll'
 
 function PollOption({ index, register, remove, value, disableRemove, errors }: PollOptionProps) {
   return (

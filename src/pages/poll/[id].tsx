@@ -1,4 +1,4 @@
-import type { PollType } from '@lib/types/poll'
+import type { PollType } from '@/types/poll'
 import { PollStatus, PollLink, PollOptionsList } from '@/components/Poll'
 
 import { useRouter } from 'next/router'

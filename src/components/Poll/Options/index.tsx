@@ -7,7 +7,7 @@ import Stack from '@/components/Stack'
 import PollOption from '../Option'
 
 // Types & Constants
-import type { PollOptionsProps } from '@lib/types/poll'
+import type { PollOptionsProps } from '@/types/poll'
 
 // External Libraries
 import { useFieldArray } from 'react-hook-form'
