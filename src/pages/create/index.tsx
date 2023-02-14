@@ -6,13 +6,15 @@ import { PollOptions } from '@components/Poll'
 
 // React
 import { useSession } from 'next-auth/react'
+import { useState } from 'react'
+import { useRouter } from 'next/router'
+import type { GetServerSideProps } from 'next'
 
 // Lib
 import type { CreatePollType } from '@lib/types/poll'
 import { useForm } from 'react-hook-form'
 import { toast } from 'react-hot-toast'
-import { useState } from 'react'
-import { useRouter } from 'next/router'
+import { getServerAuthSession } from '@lib/get-server-auth-session'
 
 export function addDays(days: number) {
   const result = new Date()
@@ -119,6 +121,23 @@ function Create() {
       </form>
     </div>
   )
+}
+
+export const getServerSideProps: GetServerSideProps = async (ctx) => {
+  const session = await getServerAuthSession(ctx)
+
+  if (!session) {
+    return {
+      redirect: {
+        destination: '/auth',
+        permanent: false
+      }
+    }
+  }
+
+  return {
+    props: { session }
+  }
 }
 
 export default Create

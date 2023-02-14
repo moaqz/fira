@@ -4,6 +4,7 @@ import Button from '@/components/Button'
 // External Libraries
 import { useSession, signIn, signOut } from 'next-auth/react'
 import toast from 'react-hot-toast'
+import Github from '@components/Icons/Github'
 
 function Auth() {
   const { status } = useSession()
@@ -14,7 +15,7 @@ function Auth() {
         callbackUrl: '/'
       })
     } catch (error) {
-      toast.error('An error occurred while logout. Please create an issue about the problem.', {
+      toast.error('An error occurred while logout. Please try later.', {
         icon: '🤔'
       })
     }
@@ -28,8 +29,17 @@ function Auth() {
     )
   }
 
+  if (status === 'loading') {
+    return (
+      <Button variant='pink' disabled isLoading>
+        Logout
+      </Button>
+    )
+  }
+
   return (
     <Button variant='pink' onClick={() => signIn('github')}>
+      <Github />
       Sign in with Github
     </Button>
   )

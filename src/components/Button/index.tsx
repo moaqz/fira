@@ -1,11 +1,13 @@
 import { ButtonHTMLAttributes, ReactNode } from 'react'
-import Loader from '@components/Icons/Loader'
+import { Ring } from '@uiball/loaders'
+import clsx from 'clsx'
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   type?: 'submit' | 'reset' | 'button'
   children?: ReactNode
   isDisabled?: boolean
   isLoading?: boolean
+  loadingText?: string
   className?: string
   variant?: 'ghost' | 'pink' | 'gray'
   size?: 'medium' | 'large'
@@ -30,13 +32,17 @@ function Button({
   variant = 'ghost',
   size = 'medium',
   isLoading = false,
+  loadingText = 'Loading...',
   ...props
 }: ButtonProps) {
   return (
     <button
-      className={`flex justify-center items-center gap-3 rounded-md transition-colors duration-200 disabled:pointer-events-none disabled:opacity-75 ${
-        VARIANTS[variant]
-      } ${className && className} ${SIZES[size]}`}
+      className={clsx(
+        'flex justify-center items-center gap-3 rounded-md transition-colors duration-200 disabled:pointer-events-none disabled:opacity-75',
+        VARIANTS[variant],
+        className,
+        SIZES[size]
+      )}
       disabled={isDisabled || isLoading}
       type={type}
       {...props}
@@ -45,8 +51,8 @@ function Button({
         children
       ) : (
         <>
-          <Loader />
-          Loading...
+          <Ring size={22} speed={2} color='black' />
+          {loadingText}
         </>
       )}
     </button>
