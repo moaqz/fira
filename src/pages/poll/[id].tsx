@@ -8,21 +8,23 @@ import { NextSeo } from 'next-seo'
 
 function Poll() {
   const router = useRouter()
-  const pollId = '' + router.query.id ?? ''
+  const pollId = router.query.id
 
   const [data, setData] = useState<PollType | null>(null)
 
   useEffect(() => {
-    if (!pollId) return
+    if (!pollId) {
+      return
+    }
 
     const fetchData = async () => {
-      const response = await fetch(`http://localhost:3000/api/poll/${pollId}`)
-      const data = await response.json()
+      const response = await fetch(`/api/poll/${pollId}`)
 
-      if (!data) {
-        console.error('error fetching data')
+      if (!response.ok) {
+        router.push('/404')
       }
 
+      const data = await response.json()
       setData(data)
     }
 
@@ -50,7 +52,7 @@ function Poll() {
         </footer>
       </div>
 
-      <PollLink id={pollId} />
+      <PollLink id={pollId as string} />
     </>
   )
 }

@@ -11,7 +11,7 @@ interface PollLinkProps {
 }
 
 function PollLink(props: PollLinkProps) {
-  const link = FIRA_PRODUCTION_URL + props.id
+  const link = FIRA_PRODUCTION_URL + 'poll/' + props.id
 
   const handleClick = () => {
     navigator.clipboard
@@ -27,7 +27,7 @@ function PollLink(props: PollLinkProps) {
     <div className='max-w-3xl px-4 py-6 mx-auto my-6 space-y-3 border border-brand-surface bg-brand-mantle sm:rounded'>
       <div className='flex items-center justify-between'>
         <h2 className='text-lg text-brand-subtext'>Share the Link</h2>
-        <Button onClick={handleClick}>
+        <Button onClick={handleClick} className='text-brand-subtext'>
           <PasteClipboard /> Copy
         </Button>
       </div>

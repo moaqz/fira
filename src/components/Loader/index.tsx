@@ -9,8 +9,8 @@ function Loader(props: LoaderProps) {
 
   return (
     <div className='mt-8 flex flex-col items-center justify-center'>
-      <p className='text-lg mb-4'>{text}</p>
-      <LineWobble speed={2} color='white' />
+      <p className='text-lg mb-4 text-brand-subtext'>{text}</p>
+      <LineWobble speed={2} color='#ccc' />
     </div>
   )
 }
