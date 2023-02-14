@@ -9,8 +9,16 @@ export const authOptions: NextAuthOptions = {
   adapter: PrismaAdapter(prisma),
   providers: [
     GithubProvider({
-      clientId: process.env.GITHUB_ID as string,
-      clientSecret: process.env.GITHUB_CLIENT_SECRET as string
+      clientId: process.env.GITHUB_ID || '',
+      clientSecret: process.env.GITHUB_CLIENT_SECRET || '',
+      profile(profile) {
+        return {
+          id: profile.id.toString(),
+          name: profile.name || profile.login,
+          email: profile.email,
+          image: profile.avatar_url
+        }
+      }
     })
   ],
   callbacks: {
@@ -23,7 +31,7 @@ export const authOptions: NextAuthOptions = {
       }
     })
   },
-  secret: process.env.SECRET
+  secret: process.env.NEXTAUTH_SECRET || ''
 }
 
 export default NextAuth(authOptions)
