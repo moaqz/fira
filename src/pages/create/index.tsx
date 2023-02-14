@@ -15,6 +15,7 @@ import type { CreatePollType } from '@lib/types/poll'
 import { useForm } from 'react-hook-form'
 import { toast } from 'react-hot-toast'
 import { getServerAuthSession } from '@lib/get-server-auth-session'
+import { NextSeo } from 'next-seo'
 
 export function addDays(days: number) {
   const result = new Date()
@@ -62,64 +63,67 @@ function Create() {
   }
 
   return (
-    <div className='sm:px-4'>
-      <h1 className='max-w-xl px-4 mx-auto my-12 text-2xl font-semibold leading-tight text-center'>
-        Complete the fields to create your poll.
-      </h1>
-      <form
-        className='max-w-3xl p-4 mx-auto space-y-4 border border-brand-surface bg-brand-mantle sm:rounded sm:p-6'
-        onSubmit={handleSubmit(onSubmit)}
-      >
-        <Stack>
-          <Label id='title'>Title</Label>
-          <Input
-            id='title'
-            placeholder='Type your question here'
-            aria-invalid={errors.title ? 'true' : 'false'}
-            {...register('title', {
-              required: 'You must include a title.',
-              maxLength: {
-                value: 200,
-                message: 'Title must contain a maximum of 200 characters'
-              }
-            })}
-          />
-          {errors.title?.type === 'required' && (
-            <p className='text-red-500 text-bold'>{errors.title?.message}</p>
-          )}
+    <>
+      <NextSeo title='Create a Poll' />
+      <div className='sm:px-4'>
+        <h1 className='max-w-xl px-4 mx-auto my-12 text-2xl font-semibold leading-tight text-center'>
+          Complete the fields to create your poll.
+        </h1>
+        <form
+          className='max-w-3xl p-4 mx-auto space-y-4 border border-brand-surface bg-brand-mantle sm:rounded sm:p-6'
+          onSubmit={handleSubmit(onSubmit)}
+        >
+          <Stack>
+            <Label id='title'>Title</Label>
+            <Input
+              id='title'
+              placeholder='Type your question here'
+              aria-invalid={errors.title ? 'true' : 'false'}
+              {...register('title', {
+                required: 'You must include a title.',
+                maxLength: {
+                  value: 200,
+                  message: 'Title must contain a maximum of 200 characters'
+                }
+              })}
+            />
+            {errors.title?.type === 'required' && (
+              <p className='text-red-500 text-bold'>{errors.title?.message}</p>
+            )}
 
-          {errors.title?.type === 'maxLength' && (
-            <p className='text-red-500 text-bold'>{errors.title?.message}</p>
-          )}
-        </Stack>
+            {errors.title?.type === 'maxLength' && (
+              <p className='text-red-500 text-bold'>{errors.title?.message}</p>
+            )}
+          </Stack>
 
-        <Stack>
-          <Label id='description' optional>
-            Description
-          </Label>
-          <TextArea id='description' {...register('description')} />
-        </Stack>
+          <Stack>
+            <Label id='description' optional>
+              Description
+            </Label>
+            <TextArea id='description' {...register('description')} />
+          </Stack>
 
-        <Stack>
-          <Label id='end-date'>End date</Label>
-          <select
-            id='end-date'
-            className='w-full px-4 py-3 border rounded border-brand-surface bg-brand-crust focus:ring-1 focus:ring-brand-mauve focus:outline-none caret-brand-mauve text-brand-subtext'
-            {...register('endDate')}
-          >
-            <option value='5'>5 minutes</option>
-            <option value='10'>10 minutes</option>
-            <option value='15'>15 minutes</option>
-          </select>
-        </Stack>
+          <Stack>
+            <Label id='end-date'>End date</Label>
+            <select
+              id='end-date'
+              className='w-full px-4 py-3 border rounded border-brand-surface bg-brand-crust focus:ring-1 focus:ring-brand-mauve focus:outline-none caret-brand-mauve text-brand-subtext'
+              {...register('endDate')}
+            >
+              <option value='5'>5 minutes</option>
+              <option value='10'>10 minutes</option>
+              <option value='15'>15 minutes</option>
+            </select>
+          </Stack>
 
-        <PollOptions control={control} errors={errors} register={register} />
+          <PollOptions control={control} errors={errors} register={register} />
 
-        <Button variant='pink' className='w-full mt-4' type='submit' isLoading={isLoading}>
-          Create Poll
-        </Button>
-      </form>
-    </div>
+          <Button variant='pink' className='w-full mt-4' type='submit' isLoading={isLoading}>
+            Create Poll
+          </Button>
+        </form>
+      </div>
+    </>
   )
 }
 

@@ -4,6 +4,7 @@ import { PollStatus, PollLink, PollOptionsList } from '@/components/Poll'
 import { useRouter } from 'next/router'
 import { useState, useEffect } from 'react'
 import Loader from '@/components/Loader'
+import { NextSeo } from 'next-seo'
 
 function Poll() {
   const router = useRouter()
@@ -34,6 +35,7 @@ function Poll() {
 
   return (
     <>
+      <NextSeo title={data.title} />
       <div className='max-w-3xl p-4 mx-auto mt-12 space-y-6 border border-brand-surface bg-brand-mantle sm:rounded sm:p-6'>
         <header className='flex flex-col sm:flex-row justify-between gap-4'>
           <div className='flex flex-col flex-1 order-1 sm:-order-1'>
