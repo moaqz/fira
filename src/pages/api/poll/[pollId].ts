@@ -4,6 +4,8 @@ import { getServerSession } from 'next-auth'
 import { authOptions } from '../auth/[...nextauth]'
 
 export default async (req: NextApiRequest, res: NextApiResponse) => {
+  if (req.method !== 'GET') return res.json({ message: 'Method not allowed' })
+
   const { pollId } = req.query
   const session = await getServerSession(req, res, authOptions)
 

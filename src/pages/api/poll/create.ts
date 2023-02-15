@@ -10,6 +10,8 @@ export function generateEndDate(endDate: string) {
 }
 
 export default async (req: NextApiRequest, res: NextApiResponse) => {
+  if (req.method !== 'POST') return res.json({ message: 'Method not allowed' })
+
   const session = await getServerSession(req, res, authOptions)
 
   if (!session) {
