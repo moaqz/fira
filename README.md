@@ -1,3 +1,7 @@
+## 💡 About this Project:
+
+Fira is a polling application that is currently under construction. If you find any bugs, feel free to create an issue.
+
 ## 📦 Built with:
 
 - [**Vitest**](https://vitest.dev/) - A blazing fast unit test framework.
