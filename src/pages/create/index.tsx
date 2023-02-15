@@ -107,7 +107,7 @@ function Create() {
           </Stack>
 
           <Stack>
-            <Label id='end-date'>End date</Label>
+            <Label id='end-date'>Ends in</Label>
             <select
               id='end-date'
               className='w-full px-4 py-3 border rounded border-brand-surface bg-brand-crust focus:ring-1 focus:ring-brand-mauve focus:outline-none caret-brand-mauve text-brand-subtext'
@@ -116,6 +116,7 @@ function Create() {
               <option value='5'>5 minutes</option>
               <option value='10'>10 minutes</option>
               <option value='15'>15 minutes</option>
+              <option value='20'>20 minutes</option>
             </select>
           </Stack>
 
