@@ -1,16 +1,23 @@
 // Icons
-import { Cancel } from 'iconoir-react'
+import { Cancel } from "iconoir-react";
 
 // Components
-import { Input } from '@components/Form'
+import { Input } from "@components/Form";
 
 // Types & Constants
-import type { PollOptionProps } from '@/types/poll'
+import type { PollOptionProps } from "@/types/poll";
 
-function PollOption({ index, register, remove, value, disableRemove, errors }: PollOptionProps) {
+function PollOption({
+  index,
+  register,
+  remove,
+  value,
+  disableRemove,
+  errors,
+}: PollOptionProps) {
   return (
     <div>
-      <div className='relative flex items-center mb-2'>
+      <div className="relative mb-2 flex items-center">
         <Input
           key={index}
           id={`option-${index}`}
@@ -20,16 +27,20 @@ function PollOption({ index, register, remove, value, disableRemove, errors }: P
         />
 
         {!disableRemove && (
-          <button className='absolute right-4' type='button' onClick={() => remove(index)}>
+          <button
+            className="absolute right-4"
+            type="button"
+            onClick={() => remove(index)}
+          >
             <Cancel />
           </button>
         )}
       </div>
       {errors.options?.[index]?.text && (
-        <p className='text-red-500 text-bold'>Blank option not allowed</p>
+        <p className="text-bold text-red-500">Blank option not allowed</p>
       )}
     </div>
-  )
+  );
 }
 
-export default PollOption
+export default PollOption;

@@ -1,48 +1,48 @@
 // Components
-import Button from '@/components/Button'
+import Button from "@/components/Button";
 
 // External Libraries
-import { useSession, signIn, signOut } from 'next-auth/react'
-import toast from 'react-hot-toast'
-import Github from '@components/Icons/Github'
+import { useSession, signIn, signOut } from "next-auth/react";
+import toast from "react-hot-toast";
+import Github from "@components/Icons/Github";
 
 function Auth() {
-  const { status } = useSession()
+  const { status } = useSession();
 
   const handleLogout = async () => {
     try {
       await signOut({
-        callbackUrl: '/'
-      })
+        callbackUrl: "/",
+      });
     } catch (error) {
-      toast.error('An error occurred while logout. Please try later.', {
-        icon: '🤔'
-      })
+      toast.error("An error occurred while logout. Please try later.", {
+        icon: "🤔",
+      });
     }
-  }
+  };
 
-  if (status === 'authenticated') {
+  if (status === "authenticated") {
     return (
-      <Button variant='pink' onClick={handleLogout}>
+      <Button variant="pink" onClick={handleLogout}>
         Logout
       </Button>
-    )
+    );
   }
 
-  if (status === 'loading') {
+  if (status === "loading") {
     return (
-      <Button variant='pink' disabled isLoading>
+      <Button variant="pink" disabled isLoading>
         Logout
       </Button>
-    )
+    );
   }
 
   return (
-    <Button variant='pink' onClick={() => signIn('github')}>
+    <Button variant="pink" onClick={() => signIn("github")}>
       <Github />
       Sign in with Github
     </Button>
-  )
+  );
 }
 
-export default Auth
+export default Auth;

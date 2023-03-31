@@ -1,36 +1,36 @@
-import { Menu, Cancel } from 'iconoir-react'
-import Button from '@/components/Button'
-import { useState } from 'react'
-import NavbarLink from './Link'
-import Logo from '@/components/Logo'
-import Auth from '@/components/Auth'
+import { Menu, Cancel } from "iconoir-react";
+import Button from "@/components/Button";
+import { useState } from "react";
+import NavbarLink from "./Link";
+import Logo from "@/components/Logo";
+import Auth from "@/components/Auth";
 
 function NavbarMenu() {
-  const [isOpen, setIsOpen] = useState<boolean>(false)
+  const [isOpen, setIsOpen] = useState<boolean>(false);
 
   return (
-    <div className='sm:hidden'>
+    <div className="sm:hidden">
       <Button onClick={() => setIsOpen(!isOpen)}>
         <Menu />
       </Button>
       {isOpen && (
-        <div className='absolute top-0 left-0 flex flex-col w-full gap-4 p-4 border-b bg-brand-mantle border-b-brand-surface'>
-          <div className='flex justify-between'>
+        <div className="absolute left-0 top-0 flex w-full flex-col gap-4 border-b border-b-brand-surface bg-brand-mantle p-4">
+          <div className="flex justify-between">
             <Logo />
             <Button onClick={() => setIsOpen(!isOpen)}>
               <Cancel />
             </Button>
           </div>
-          <ul className='flex flex-col gap-4'>
-            <NavbarLink href='/create' text='Create Poll' />
+          <ul className="flex flex-col gap-4">
+            <NavbarLink href="/create" text="Create Poll" />
           </ul>
-          <div className='flex flex-col gap-3'>
+          <div className="flex flex-col gap-3">
             <Auth />
           </div>
         </div>
       )}
     </div>
-  )
+  );
 }
 
-export default NavbarMenu
+export default NavbarMenu;

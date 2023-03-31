@@ -9,6 +9,15 @@
 - [**Prisma**](https://prisma.io) - Next-generation Node.js and TypeScript ORM
 - [**Planetscale**](https://planetscale.com/) - The world’s most advanced serverless MySQL platform
 
+## 🎉 Features
+
+- [x] Authentication with GitHub.
+- [x] Users can create new poll.
+- [x] Users can vote on poll options.
+- [ ] Users can delete their polls.
+- [ ] Users can edit their polls.
+- [ ] Users can view their polls.
+
 ## 🔧 Getting Started
 
 1. Clone the repository:

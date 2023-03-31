@@ -1,27 +1,32 @@
 // Icons
-import { Plus } from 'iconoir-react'
+import { Plus } from "iconoir-react";
 
 // Components
-import Button from '@/components/Button'
-import Stack from '@/components/Stack'
-import PollOption from '../Option'
+import Button from "@/components/Button";
+import Stack from "@/components/Stack";
+import PollOption from "../Option";
 
 // Types & Constants
-import type { PollOptionsProps } from '@/types/poll'
+import type { PollOptionsProps } from "@/types/poll";
 
 // External Libraries
-import { useFieldArray } from 'react-hook-form'
+import { useFieldArray } from "react-hook-form";
 
-function PollOptions({ control, register, maxOptions = 5, errors }: PollOptionsProps) {
+function PollOptions({
+  control,
+  register,
+  maxOptions = 5,
+  errors,
+}: PollOptionsProps) {
   const { fields, append, remove } = useFieldArray({
     control,
-    name: 'options'
-  })
+    name: "options",
+  });
 
   return (
     <>
       <Stack>
-        <p className='text-lg font-semibold text-brand-subtext'>Options</p>
+        <p className="text-lg font-semibold text-brand-subtext">Options</p>
         {fields?.map((field: any, index: number) => {
           return (
             <PollOption
@@ -33,22 +38,22 @@ function PollOptions({ control, register, maxOptions = 5, errors }: PollOptionsP
               errors={errors}
               disableRemove={fields.length <= 2}
             />
-          )
+          );
         })}
       </Stack>
 
       {fields?.length < maxOptions && (
         <Button
-          variant='gray'
+          variant="gray"
           onClick={() => {
-            append({ text: '' })
+            append({ text: "" });
           }}
         >
           <Plus /> Add option
         </Button>
       )}
     </>
-  )
+  );
 }
 
-export default PollOptions
+export default PollOptions;

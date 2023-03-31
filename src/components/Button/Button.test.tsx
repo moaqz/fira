@@ -1,21 +1,21 @@
-import Button from '.'
-import { render, screen } from '@testing-library/react'
+import Button from ".";
+import { render, screen } from "@testing-library/react";
 
-describe('Button', () => {
-  test('Should render', () => {
-    render(<Button>Button</Button>)
+describe("Button", () => {
+  test("Should render", () => {
+    render(<Button>Button</Button>);
 
-    expect(screen.getByText('Button')).toBeInTheDocument()
-  })
+    expect(screen.getByText("Button")).toBeInTheDocument();
+  });
 
-  test('Should be disabled', () => {
+  test("Should be disabled", () => {
     const { getByTestId } = render(
       <Button disabled data-testid="btn">
         disabled Button
-      </Button>
-    )
+      </Button>,
+    );
 
-    const btn = getByTestId('btn')
-    expect(btn).toHaveAttribute('disabled')
-  })
-})
+    const btn = getByTestId("btn");
+    expect(btn).toHaveAttribute("disabled");
+  });
+});

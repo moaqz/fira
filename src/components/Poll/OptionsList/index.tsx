@@ -1,24 +1,24 @@
-import { OptionType } from '@/types/poll'
-import { PollOptionVote } from '@/components/Poll'
+import { OptionType } from "@/types/poll";
+import { PollOptionVote } from "@/components/Poll";
 
-import { useState } from 'react'
-import { isPollFinished } from '@/lib/dateUtilities'
+import { useState } from "react";
+import { isPollFinished } from "@/lib/dateUtilities";
 
 interface PollOptionsListProps {
-  endsAt: string
-  options: OptionType[]
+  endsAt: string;
+  options: OptionType[];
 }
 
 function PollOptionsList({ endsAt, options }: PollOptionsListProps) {
   const [hasVoted, setHasVoted] = useState<boolean>(() =>
-    options.some((option) => option.userVotes.length > 0)
-  )
+    options.some((option) => option.userVotes.length > 0),
+  );
 
-  const totalVotes = options.reduce((a, b) => a + b.totalCount, 0)
-  const hasEnded = isPollFinished(endsAt)
+  const totalVotes = options.reduce((a, b) => a + b.totalCount, 0);
+  const hasEnded = isPollFinished(endsAt);
 
   return (
-    <div className='flex flex-col gap-3'>
+    <div className="flex flex-col gap-3">
       {options?.map((option) => {
         return (
           <PollOptionVote
@@ -32,10 +32,10 @@ function PollOptionsList({ endsAt, options }: PollOptionsListProps) {
             totalVotes={totalVotes}
             setHasVoted={setHasVoted}
           />
-        )
+        );
       })}
     </div>
-  )
+  );
 }
 
-export default PollOptionsList
+export default PollOptionsList;

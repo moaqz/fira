@@ -1,25 +1,25 @@
-import Button from '@/components/Button'
-import Footer from '@/layout/Footer'
-import { useRouter } from 'next/router'
+import Button from "@/components/Button";
+import Footer from "@/layout/Footer";
+import { useRouter } from "next/router";
 
 function Error404() {
-  const router = useRouter()
+  const router = useRouter();
 
   return (
     <>
-      <section className='my-60'>
-        <div className='px-4 flex flex-col items-center'>
-          <h1 className='max-w-sm mx-auto text-4xl font-semibold leading-tight text-center sm:max-w-xl sm:text-5xl'>
+      <section className="my-60">
+        <div className="flex flex-col items-center px-4">
+          <h1 className="mx-auto max-w-sm text-center text-4xl font-semibold leading-tight sm:max-w-xl sm:text-5xl">
             Page Not Found
           </h1>
-          <p className='max-w-sm mx-auto mt-4 text-center break-words text-brand-subtext sm:max-w-md sm:text-xl'>
+          <p className="mx-auto mt-4 max-w-sm break-words text-center text-brand-subtext sm:max-w-md sm:text-xl">
             The page you are trying to access does not exist.
           </p>
           <Button
-            variant='pink'
-            className='mt-4'
+            variant="pink"
+            className="mt-4"
             onClick={() => {
-              router.push('/')
+              router.push("/");
             }}
           >
             Go Home
@@ -28,7 +28,7 @@ function Error404() {
       </section>
       <Footer />
     </>
-  )
+  );
 }
 
-export default Error404
+export default Error404;

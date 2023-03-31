@@ -1,5 +1,5 @@
-import Input from './Input'
-import TextArea from './TextArea'
-import Label from './Label'
+import Input from "./Input";
+import TextArea from "./TextArea";
+import Label from "./Label";
 
-export { Input, TextArea, Label }
+export { Input, TextArea, Label };

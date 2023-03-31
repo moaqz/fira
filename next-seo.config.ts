@@ -1,11 +1,11 @@
 export default {
-  titleTemplate: '%s - Fira',
-  description: 'A poll maker application built with Next.js',
-  defaultTitle: 'Poll Maker - Fira',
+  titleTemplate: "%s - Fira",
+  description: "A poll maker application built with Next.js",
+  defaultTitle: "Poll Maker - Fira",
   openGraph: {
-    site_name: 'fira',
-    url: 'https://fira.vercel.app/',
-    type: 'website',
-    locale: 'en_IE'
-  }
-}
+    site_name: "fira",
+    url: "https://fira.vercel.app/",
+    type: "website",
+    locale: "en_IE",
+  },
+};
