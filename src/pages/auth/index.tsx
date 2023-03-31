@@ -2,21 +2,13 @@ import Footer from "@/layout/Footer";
 import Button from "@/components/Button";
 import Github from "@components/Icons/Github";
 
-import { signIn, useSession } from "next-auth/react";
+import { signIn } from "next-auth/react";
 import { toast } from "react-hot-toast";
 
 import { useState } from "react";
 import { NextSeo } from "next-seo";
-import { useRouter } from "next/router";
 
 function Auth() {
-  const { data: session } = useSession();
-  const router = useRouter();
-
-  if (session) {
-    router.push("/create");
-  }
-
   const [loading, setLoading] = useState(false);
 
   const handleSignIn = async () => {

@@ -6,9 +6,8 @@ generator client {
 }
 
 datasource db {
-  provider     = "mysql"
-  url          = env("DATABASE_URL")
-  relationMode = "prisma"
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
 }
 
 model Account {
@@ -102,7 +101,6 @@ model PollOptionVote {
   pollOption PollOption? @relation(fields: [pollOptionId], references: [id], onDelete: Cascade)
 
   @@id([userId, pollId])
-  
   @@index([pollId])
   @@index([userId])
   @@index([pollOptionId])

@@ -5,7 +5,6 @@ import Stack from "@/components/Stack";
 import { PollOptions } from "@components/Poll";
 
 // React
-import { useSession } from "next-auth/react";
 import { useState } from "react";
 import { useRouter } from "next/router";
 
@@ -24,12 +23,6 @@ export function addDays(days: number) {
 function Create() {
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const router = useRouter();
-  useSession({
-    required: true,
-    onUnauthenticated() {
-      router.push("/auth");
-    },
-  });
 
   const {
     control,

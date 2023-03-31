@@ -1,10 +1,18 @@
-/* eslint-disable no-unused-vars */
-import type { DefaultSession } from "next-auth";
+import { type DefaultSession } from "next-auth";
+import { JWT } from "next-auth/jwt";
 
 declare module "next-auth" {
   interface Session {
-    user?: {
+    user: User & {
       id: string;
-    } & DefaultSession["user"];
+    };
+  }
+}
+
+declare module "next-auth" {
+  interface Session {
+    user: User & {
+      id: string;
+    };
   }
 }

@@ -22,14 +22,39 @@ export const authOptions: NextAuthOptions = {
     }),
   ],
   callbacks: {
-    // Include user.id on session
-    session: ({ session, user }) => ({
-      ...session,
-      user: {
-        ...session.user,
-        id: user.id,
-      },
-    }),
+    async session({ token, session }) {
+      if (token) {
+        session.user.id = token.id;
+        session.user.name = token.name;
+        session.user.email = token.email;
+        session.user.image = token.image;
+      }
+
+      return session;
+    },
+    async jwt({ token, user }) {
+      const userByEmail = await prisma.user.findFirst({
+        where: { email: token.email },
+      });
+
+      if (!userByEmail) {
+        token.id = user?.id;
+        return token;
+      }
+
+      return {
+        id: userByEmail.id,
+        name: userByEmail.name,
+        email: userByEmail.email,
+        image: userByEmail.image,
+      };
+    },
+  },
+  pages: {
+    signIn: "/auth",
+  },
+  session: {
+    strategy: "jwt",
   },
   secret: process.env.NEXTAUTH_SECRET || "",
 };
