@@ -1,6 +1,7 @@
 import { ButtonHTMLAttributes, ReactNode } from "react";
 import { Ring } from "@uiball/loaders";
 import clsx from "clsx";
+import Spinner from "@components/Loaders/Spinner";
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   type?: "submit" | "reset" | "button";
@@ -47,14 +48,7 @@ function Button({
       type={type}
       {...props}
     >
-      {!isLoading ? (
-        children
-      ) : (
-        <>
-          <Ring size={22} speed={2} color="black" />
-          {loadingText}
-        </>
-      )}
+      {!isLoading ? children : <Spinner />}
     </button>
   );
 }

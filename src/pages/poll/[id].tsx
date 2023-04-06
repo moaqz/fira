@@ -3,7 +3,7 @@ import { PollStatus, PollLink, PollOptionsList } from "@/components/Poll";
 
 import { useRouter } from "next/router";
 import { useState, useEffect } from "react";
-import Loader from "@/components/Loader";
+import LineLoader from "@/components/Loaders/LineLoader";
 import { NextSeo } from "next-seo";
 
 function Poll() {
@@ -32,7 +32,7 @@ function Poll() {
   }, [pollId]);
 
   if (!data) {
-    return <Loader text="Loading Poll Information." />;
+    return <LineLoader text="Loading Poll Information." />;
   }
 
   return (

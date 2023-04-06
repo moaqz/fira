@@ -1,18 +1,16 @@
-import { LineWobble } from "@uiball/loaders";
-
-interface LoaderProps {
+export interface LineLoaderProps {
   text?: string;
 }
 
-function Loader(props: LoaderProps) {
+function LineLoader(props: LineLoaderProps) {
   const text = props.text ?? "Loading...";
 
   return (
     <div className="mt-8 flex flex-col items-center justify-center">
       <p className="mb-4 text-lg text-brand-subtext">{text}</p>
-      <LineWobble speed={2} color="#ccc" />
+      <div className="lineLoader" />
     </div>
   );
 }
 
-export default Loader;
+export default LineLoader;
