@@ -1,5 +1,4 @@
 import { ButtonHTMLAttributes, ReactNode } from "react";
-import { Ring } from "@uiball/loaders";
 import clsx from "clsx";
 import Spinner from "@components/Loaders/Spinner";
 
