@@ -1,6 +1,6 @@
 // Components
 import Button from "@/components/Button";
-import { PasteClipboard } from "iconoir-react";
+import { PasteClipboard } from "@/components/Icons";
 
 // Utilities & External Libraries
 import { FIRA_PRODUCTION_URL } from "@/lib/constants";

@@ -4,7 +4,7 @@ import Button from "@/components/Button";
 // External Libraries
 import { useSession, signIn, signOut } from "next-auth/react";
 import toast from "react-hot-toast";
-import Github from "@components/Icons/Github";
+import { Github } from "@components/Icons";
 
 function Auth() {
   const { status } = useSession();

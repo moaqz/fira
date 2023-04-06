@@ -1,5 +1,5 @@
 // Icons
-import { Cancel } from "iconoir-react";
+import { Cancel } from "@/components/Icons";
 
 // Components
 import { Input } from "@components/Form";

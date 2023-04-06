@@ -1,5 +1,5 @@
 // Icons
-import { Plus } from "iconoir-react";
+import { Plus } from "@components/Icons";
 
 // Components
 import Button from "@/components/Button";

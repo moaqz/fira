@@ -1,7 +1,7 @@
 import Button from "@/components/Button";
 import Footer from "@/layout/Footer";
 import { useRouter } from "next/router";
-import { Rocket, BrightStar } from "iconoir-react";
+import { Rocket, Star } from "@components/Icons";
 
 function Home() {
   const router = useRouter();
@@ -26,7 +26,7 @@ function Home() {
             size="large"
             onClick={() => router.push("/create")}
           >
-            <Rocket className="rotate-45" />
+            <Rocket />
             Get Started
           </Button>
           <a
@@ -35,7 +35,7 @@ function Home() {
             rel="noreferrer"
             className="flex h-12 items-center justify-center gap-3 rounded-md bg-brand-surface px-6 text-white transition-colors duration-200 hover:bg-brand-surface2"
           >
-            <BrightStar />
+            <Star />
             Star on GitHub
           </a>
         </div>

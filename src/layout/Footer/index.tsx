@@ -1,4 +1,4 @@
-import Github from "@/components/Icons/Github";
+import { Github } from "@/components/Icons";
 
 function Footer() {
   return (

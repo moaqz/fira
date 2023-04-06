@@ -5,9 +5,6 @@ import type { Session } from "next-auth";
 import "@/styles/globals.css";
 import { Toaster } from "react-hot-toast";
 
-// Iconir Icons
-import { IconoirProvider } from "iconoir-react";
-
 // Layout
 import AppLayout from "@/layout/AppLayout";
 
@@ -26,16 +23,9 @@ const App: AppType<{ session: Session | null }> = ({
     <>
       <DefaultSeo {...nextSeoConfig} />
       <SessionProvider session={session}>
-        <IconoirProvider
-          iconProps={{
-            width: "1.5rem",
-            height: "1.5rem",
-          }}
-        >
-          <AppLayout>
-            <Component {...pageProps} />
-          </AppLayout>
-        </IconoirProvider>
+        <AppLayout>
+          <Component {...pageProps} />
+        </AppLayout>
       </SessionProvider>
       <Toaster reverseOrder={false} />
     </>

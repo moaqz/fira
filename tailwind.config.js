@@ -20,6 +20,9 @@ module.exports = {
           pink: "#f5c2e7",
         },
       },
+      backgroundImage: {
+        'background': "url('/background.svg')",
+      }
     },
   },
   plugins: [],

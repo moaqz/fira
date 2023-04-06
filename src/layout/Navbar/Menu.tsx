@@ -1,4 +1,4 @@
-import { Menu, Cancel } from "iconoir-react";
+import { Menu, Cancel } from "@components/Icons";
 import Button from "@/components/Button";
 import { useState } from "react";
 import NavbarLink from "./Link";

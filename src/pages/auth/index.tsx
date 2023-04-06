@@ -1,6 +1,6 @@
 import Footer from "@/layout/Footer";
 import Button from "@/components/Button";
-import Github from "@components/Icons/Github";
+import { Github } from "@components/Icons";
 
 import { signIn } from "next-auth/react";
 import { toast } from "react-hot-toast";
