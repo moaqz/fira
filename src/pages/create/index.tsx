@@ -13,6 +13,7 @@ import type { CreatePollType } from "@/types/poll";
 import { useForm } from "react-hook-form";
 import { toast } from "react-hot-toast";
 import { NextSeo } from "next-seo";
+import AppLayout from "@/layout/AppLayout";
 
 export function addDays(days: number) {
   const result = new Date();
@@ -59,7 +60,7 @@ function Create() {
   };
 
   return (
-    <>
+    <AppLayout>
       <NextSeo title="Create a Poll" />
       <div className="sm:px-4">
         <h1 className="mx-auto my-12 max-w-xl px-4 text-center text-2xl font-semibold leading-tight">
@@ -125,7 +126,7 @@ function Create() {
           </Button>
         </form>
       </div>
-    </>
+    </AppLayout>
   );
 }
 

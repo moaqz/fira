@@ -1,18 +1,21 @@
-import { Github } from "@/components/Icons";
-
 function Footer() {
   return (
-    <div className="fixed bottom-0 mb-6 mt-6 flex w-full justify-center text-brand-subtext">
-      <a
-        href="https://github.com/techwithmat/fira"
-        target="_blank"
-        rel="noreferrer"
-        className="flex items-center gap-2 transition-colors duration-100 hover:text-white"
-      >
-        <Github />
-        Made using Tailwind & Next.js
-      </a>
-    </div>
+    <footer className="fixed bottom-0 z-50 my-4 w-full px-5 text-brand-subtext">
+      <div className="flex items-center justify-between">
+        <p>Made using TailwindCSS & Next.js</p>
+        <div className="flex items-center space-x-1">
+          <p>Crafted by</p>
+          <a
+            href="https://github.com/techwithmat"
+            target="_blank"
+            rel="noreferrer"
+            className="flex items-center gap-2 transition-colors duration-100 hover:text-white"
+          >
+            techwithmat
+          </a>
+        </div>
+      </div>
+    </footer>
   );
 }
 

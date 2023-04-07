@@ -23,9 +23,7 @@ const App: AppType<{ session: Session | null }> = ({
     <>
       <DefaultSeo {...nextSeoConfig} />
       <SessionProvider session={session}>
-        <AppLayout>
-          <Component {...pageProps} />
-        </AppLayout>
+        <Component {...pageProps} />
       </SessionProvider>
       <Toaster reverseOrder={false} />
     </>

@@ -13,7 +13,7 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   size?: "medium" | "large";
 }
 
-const VARIANTS = {
+export const VARIANTS = {
   ghost: "bg-transparent hover:bg-brand-surface text-white",
   gray: "bg-brand-surface hover:bg-brand-surface2 text-white",
   pink: "bg-brand-mauve hover:bg-brand-mauve2 text-black font-semibold",

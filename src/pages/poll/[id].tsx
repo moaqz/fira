@@ -5,6 +5,7 @@ import { useRouter } from "next/router";
 import { useState, useEffect } from "react";
 import LineLoader from "@/components/Loaders/LineLoader";
 import { NextSeo } from "next-seo";
+import AppLayout from "@/layout/AppLayout";
 
 function Poll() {
   const router = useRouter();
@@ -36,7 +37,7 @@ function Poll() {
   }
 
   return (
-    <>
+    <AppLayout>
       <NextSeo title={data.title} />
       <div className="mx-auto mt-12 max-w-3xl space-y-6 border border-brand-surface bg-brand-mantle p-4 sm:rounded sm:p-6">
         <header className="flex flex-col justify-between gap-4 sm:flex-row">
@@ -53,7 +54,7 @@ function Poll() {
       </div>
 
       <PollLink id={pollId as string} />
-    </>
+    </AppLayout>
   );
 }
 
