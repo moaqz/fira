@@ -21,8 +21,8 @@ module.exports = {
         },
       },
       backgroundImage: {
-        'background': "url('/background.svg')",
-      }
+        background: "url('/background.svg')",
+      },
     },
   },
   plugins: [],

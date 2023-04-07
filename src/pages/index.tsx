@@ -13,7 +13,7 @@ function Home() {
             </h2>
           </div>
           <div className="mx-auto max-w-4xl px-5">
-            <h1 className="text-center text-5xl font-extrabold leading-tight md:text-6xl lg:text-7xl">
+            <h1 className="text-center text-5xl font-extrabold leading-tight sm:text-6xl lg:text-7xl">
               Create your poll in seconds
             </h1>
             <p className="mx-auto mt-10 text-center text-base text-brand-subtext sm:max-w-lg sm:text-xl">
