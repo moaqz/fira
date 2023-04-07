@@ -18,14 +18,9 @@
     "paths": {
       "@/*": ["./src/*"],
       "@components/*": ["./src/components/*"],
-      "@layout/*": ["src/components/common/Layout/*"],
       "@lib/*": ["./src/lib/*"],
-      "@pages/*": ["./src/pages/*"],
-      "@config/*": ["./src/config/*"],
-      "@test/*": ["./src/test/*"],
-      "@server/*": ["./src/server/*"]
-    },
-    "types": ["vitest/globals"]
+      "@pages/*": ["./src/pages/*"]
+    }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
   "exclude": ["node_modules"]

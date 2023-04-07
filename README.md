@@ -1,6 +1,5 @@
 ## 📦 Built with:
 
-- [**Vitest**](https://vitest.dev/) - A blazing fast unit test framework.
 - [**Nextjs**](https://nextjs.org/) - The React Framework for Production.
 - [**Typescript**](https://www.typescriptlang.org/) - A superset of JavaScript.
 - [**Tailwind CSS**](https://tailwindcss.com/) - A utility-first CSS framework for rapidly building custom designs.
@@ -12,9 +11,9 @@
 - [x] Authentication with GitHub.
 - [x] Users can create new poll.
 - [x] Users can vote on poll options.
+- [x] Users can view their polls.
 - [ ] Users can delete their polls.
 - [ ] Users can edit their polls.
-- [x] Users can view their polls.
 
 ## 🔧 Getting Started
 
