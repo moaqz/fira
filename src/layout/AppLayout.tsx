@@ -1,15 +1,16 @@
-import type { ReactNode } from "react";
-import Navbar from "./Navbar";
+import Header from "./Header";
+// import Footer from "./Footer";
 
 interface Props {
-  children: ReactNode;
+  children: React.ReactNode;
 }
 
 function AppLayout({ children }: Props) {
   return (
     <>
-      <Navbar />
-      <main className="mb-28">{children}</main>
+      <Header />
+      <main className="mb-32">{children}</main>
+      {/* <Footer /> */}
     </>
   );
 }
