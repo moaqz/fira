@@ -1,4 +1,10 @@
-## 📦 Built with:
+<div align="center">
+  <a href="https://fira.vercel.app">
+    <img src="public/banner.png">
+  </a>
+</div>
+
+## [📦] Built with:
 
 - [**Nextjs**](https://nextjs.org/) - The React Framework for Production.
 - [**Typescript**](https://www.typescriptlang.org/) - A superset of JavaScript.
@@ -6,7 +12,7 @@
 - [**NextAuth.js**](https://next-auth.js.org) - Authentication for Next.js
 - [**Prisma**](https://prisma.io) - Next-generation Node.js and TypeScript ORM
 
-## 🎉 Features
+## [🎉] Features
 
 - [x] Authentication with GitHub.
 - [x] Users can create new poll.
@@ -15,7 +21,7 @@
 - [ ] Users can delete their polls.
 - [ ] Users can edit their polls.
 
-## 🔧 Getting Started
+## [🔧] Getting Started
 
 1. Clone the repository:
 
@@ -53,6 +59,6 @@ pnpx prisma db push
 pnpm run dev
 ```
 
-## 🔑 License
+## [🔑] License
 
 - [MIT](https://github.com/techwithmat/fira/blob/main/LICENSE)
