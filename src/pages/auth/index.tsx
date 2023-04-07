@@ -5,8 +5,8 @@ import { Github } from "@components/Icons";
 import { signIn } from "next-auth/react";
 import { toast } from "react-hot-toast";
 
-import { useState } from "react";
 import { NextSeo } from "next-seo";
+import { useState } from "react";
 
 function Auth() {
   const [loading, setLoading] = useState(false);
@@ -15,23 +15,32 @@ function Auth() {
     setLoading(true);
 
     try {
-      await signIn("github", { callbackUrl: "/create" });
+      await signIn("github", { callbackUrl: `/dash` });
     } catch (error) {
-      toast.error("An error occurred while logging in.");
-    } finally {
       setLoading(false);
+      toast.error("Unable to log in. Please try again later.");
     }
   };
 
   return (
     <>
-      <NextSeo title="Log in to your account" />
-      <div className="my-32 flex flex-col items-center justify-center px-4 sm:my-40">
-        <h1 className="mb-8 text-center text-4xl">🔥 Welcome to Fira</h1>
-        <Button variant="pink" onClick={handleSignIn} isLoading={loading}>
-          <Github /> Sign in with Github
-        </Button>
-      </div>
+      <main>
+        <NextSeo title="Log in to your account" />
+        <div className="grid h-screen place-content-center px-4">
+          <h1 className="mb-8 text-center text-4xl">
+            Sign in to Fira to continue
+          </h1>
+
+          <Button
+            variant="pink"
+            size="large"
+            onClick={handleSignIn}
+            isLoading={loading}
+          >
+            <Github /> Sign in with Github
+          </Button>
+        </div>
+      </main>
       <Footer />
     </>
   );

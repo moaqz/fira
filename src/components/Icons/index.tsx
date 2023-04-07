@@ -4,7 +4,7 @@ export function PasteClipboard() {
       width="24px"
       height="24px"
       viewBox="0 0 24 24"
-      stroke-width="1"
+      strokeWidth="1"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
       color="currentColor"
@@ -12,14 +12,14 @@ export function PasteClipboard() {
       <path
         d="M8.5 4H6a2 2 0 00-2 2v14a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-2.5"
         stroke="currentColor"
-        stroke-width="1"
-        stroke-linecap="round"
+        strokeWidth="1"
+        strokeLinecap="round"
       ></path>
       <path
         d="M8 6.4V4.5a.5.5 0 01.5-.5c.276 0 .504-.224.552-.496C9.2 2.652 9.774 1 12 1s2.8 1.652 2.948 2.504c.048.272.276.496.552.496a.5.5 0 01.5.5v1.9a.6.6 0 01-.6.6H8.6a.6.6 0 01-.6-.6z"
         stroke="currentColor"
-        stroke-width="1"
-        stroke-linecap="round"
+        strokeWidth="1"
+        strokeLinecap="round"
       ></path>
     </svg>
   );
@@ -30,7 +30,7 @@ export function Cancel() {
     <svg
       width="24px"
       height="24px"
-      stroke-width="1"
+      strokeWidth="1"
       viewBox="0 0 24 24"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
@@ -39,9 +39,9 @@ export function Cancel() {
       <path
         d="M6.758 17.243L12.001 12m5.243-5.243L12 12m0 0L6.758 6.757M12.001 12l5.243 5.243"
         stroke="currentColor"
-        stroke-width="1"
-        stroke-linecap="round"
-        stroke-linejoin="round"
+        strokeWidth="1"
+        strokeLinecap="round"
+        strokeLinejoin="round"
       ></path>
     </svg>
   );
@@ -52,7 +52,7 @@ export function Plus() {
     <svg
       width="24px"
       height="24px"
-      stroke-width="1"
+      strokeWidth="1"
       viewBox="0 0 24 24"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
@@ -61,9 +61,9 @@ export function Plus() {
       <path
         d="M6 12h6m6 0h-6m0 0V6m0 6v6"
         stroke="currentColor"
-        stroke-width="1"
-        stroke-linecap="round"
-        stroke-linejoin="round"
+        strokeWidth="1"
+        strokeLinecap="round"
+        strokeLinejoin="round"
       ></path>
     </svg>
   );
@@ -74,7 +74,7 @@ export function Menu() {
     <svg
       width="24px"
       height="24px"
-      stroke-width="1"
+      strokeWidth="1"
       viewBox="0 0 24 24"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
@@ -83,9 +83,9 @@ export function Menu() {
       <path
         d="M3 5h18M3 12h18M3 19h18"
         stroke="currentColor"
-        stroke-width="1"
-        stroke-linecap="round"
-        stroke-linejoin="round"
+        strokeWidth="1"
+        strokeLinecap="round"
+        strokeLinejoin="round"
       ></path>
     </svg>
   );
@@ -97,7 +97,7 @@ export function Rocket() {
       width="24px"
       height="24px"
       viewBox="0 0 24 24"
-      stroke-width="1"
+      strokeWidth="1"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
       color="currentColor"
@@ -106,16 +106,16 @@ export function Rocket() {
       <path
         d="M16.061 10.404L14 17h-4l-2.061-6.596a6 6 0 01.998-5.484l2.59-3.315a.6.6 0 01.946 0l2.59 3.315a6 6 0 01.998 5.484zM10 20c0 2 2 3 2 3s2-1 2-3M8.5 12.5C5 15 7 19 7 19l3-2M15.931 12.5c3.5 2.5 1.5 6.5 1.5 6.5l-3-2"
         stroke="currentColor"
-        stroke-width="1"
-        stroke-linecap="round"
-        stroke-linejoin="round"
+        strokeWidth="1"
+        strokeLinecap="round"
+        strokeLinejoin="round"
       ></path>
       <path
         d="M12 11a2 2 0 110-4 2 2 0 010 4z"
         stroke="currentColor"
-        stroke-width="1"
-        stroke-linecap="round"
-        stroke-linejoin="round"
+        strokeWidth="1"
+        strokeLinecap="round"
+        strokeLinejoin="round"
       ></path>
     </svg>
   );
@@ -126,7 +126,7 @@ export function Star() {
     <svg
       width="24px"
       height="24px"
-      stroke-width="1"
+      strokeWidth="1"
       viewBox="0 0 24 24"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
@@ -135,9 +135,9 @@ export function Star() {
       <path
         d="M8.587 8.236l2.598-5.232a.911.911 0 011.63 0l2.598 5.232 5.808.844a.902.902 0 01.503 1.542l-4.202 4.07.992 5.75c.127.738-.653 1.3-1.32.952L12 18.678l-5.195 2.716c-.666.349-1.446-.214-1.319-.953l.992-5.75-4.202-4.07a.902.902 0 01.503-1.54l5.808-.845z"
         stroke="currentColor"
-        stroke-width="1"
-        stroke-linecap="round"
-        stroke-linejoin="round"
+        strokeWidth="1"
+        strokeLinecap="round"
+        strokeLinejoin="round"
       ></path>
     </svg>
   );
