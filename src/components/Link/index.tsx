@@ -15,7 +15,7 @@ export function Link(props: LinkProps) {
     <NextLink
       href={href}
       className={clsx(
-        "flex h-12 items-center justify-center gap-3 rounded-md px-6 transition-colors duration-200",
+        "flex h-12 items-center justify-center gap-3 whitespace-nowrap rounded-md px-6 transition-colors duration-200",
         VARIANTS[variant],
       )}
     >
@@ -33,7 +33,7 @@ export function ExternalLink(props: LinkProps) {
       target="_blank"
       rel="noreferrer"
       className={clsx(
-        "flex h-12 items-center justify-center gap-3 rounded-md px-6 transition-colors duration-200",
+        "flex h-12 items-center justify-center gap-3 whitespace-nowrap rounded-md px-6 transition-colors duration-200",
         VARIANTS[variant],
       )}
     >

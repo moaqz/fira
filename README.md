@@ -14,7 +14,7 @@
 - [x] Users can vote on poll options.
 - [ ] Users can delete their polls.
 - [ ] Users can edit their polls.
-- [ ] Users can view their polls.
+- [x] Users can view their polls.
 
 ## 🔧 Getting Started
 

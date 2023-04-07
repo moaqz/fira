@@ -4,6 +4,7 @@ import PollStatus from "./Status";
 import PollOptionVote from "./VoteOption";
 import PollLink from "./Link";
 import PollOptionsList from "./OptionsList";
+import PollCard from "./Card";
 
 export {
   PollOption,
@@ -12,4 +13,5 @@ export {
   PollOptionVote,
   PollLink,
   PollOptionsList,
+  PollCard,
 };
