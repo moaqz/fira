@@ -27,5 +27,5 @@ export default withAuth(
 );
 
 export const config = {
-  matcher: ["/auth", "/dash", "/create"],
+  matcher: ["/auth", "/dash", "/create", "/poll/:path*"],
 };
