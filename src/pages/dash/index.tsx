@@ -11,6 +11,7 @@ import { PollCard } from "@/components/Poll";
 export type Poll = Omit<PollType, "options" | "user">;
 
 import useSWR from "swr";
+import EmptyState from "@/components/EmptyState";
 
 function Dash() {
   const { data, error } = useSWR<Poll[]>("/api/poll/all");
@@ -19,6 +20,10 @@ function Dash() {
   const handleSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
     setQuery(e.target.value.toLowerCase());
   };
+
+  const filteredData =
+    data?.filter((poll: Poll) => poll.title.toLowerCase().includes(query)) ??
+    [];
 
   return (
     <AppLayout>
@@ -48,13 +53,15 @@ function Dash() {
           </div>
         )}
 
-        <div className="mt-4 grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3">
-          {data &&
-            data.length > 0 &&
-            data
-              .filter((poll: Poll) => poll.title.toLowerCase().includes(query)) // filter polls based on search query
-              .map((poll: Poll) => <PollCard key={poll.id} {...poll} />)}
-        </div>
+        {filteredData.length === 0 ? (
+          <EmptyState query={query} />
+        ) : (
+          <div className="mt-4 grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3">
+            {filteredData.map((poll: Poll) => (
+              <PollCard key={poll.id} {...poll} />
+            ))}
+          </div>
+        )}
       </div>
     </AppLayout>
   );
