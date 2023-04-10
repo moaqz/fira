@@ -26,5 +26,11 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
     },
   });
 
+  if (!result) {
+    res.status(404).send({
+      message: "Poll not found",
+    });
+  }
+
   return res.json(result);
 };

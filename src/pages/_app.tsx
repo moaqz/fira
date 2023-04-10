@@ -15,6 +15,9 @@ import { SessionProvider } from "next-auth/react";
 import { DefaultSeo } from "next-seo";
 import nextSeoConfig from "next-seo.config";
 
+import { SWRConfig } from "swr";
+import { fetcher } from "@/lib/fetcher";
+
 const App: AppType<{ session: Session | null }> = ({
   Component,
   pageProps: { session, ...pageProps },
@@ -23,7 +26,9 @@ const App: AppType<{ session: Session | null }> = ({
     <>
       <DefaultSeo {...nextSeoConfig} />
       <SessionProvider session={session}>
-        <Component {...pageProps} />
+        <SWRConfig value={{ fetcher }}>
+          <Component {...pageProps} />
+        </SWRConfig>
       </SessionProvider>
       <Toaster reverseOrder={false} />
     </>
