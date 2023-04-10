@@ -53,7 +53,7 @@ function Dash() {
           </div>
         )}
 
-        {filteredData.length === 0 ? (
+        {data && filteredData.length === 0 ? (
           <EmptyState query={query} />
         ) : (
           <div className="mt-4 grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3">
