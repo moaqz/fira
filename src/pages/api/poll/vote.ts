@@ -1,31 +1,37 @@
 import type { NextApiRequest, NextApiResponse } from "next";
 import prisma from "@/lib/prisma";
-import { getServerSession } from "next-auth";
-import { authOptions } from "../auth/[...nextauth]";
+import { requireAuth } from "@/lib/auth";
+import { isPollFinished } from "@/lib/dateUtilities";
 
 export default async (req: NextApiRequest, res: NextApiResponse) => {
-  if (req.method !== "POST") return res.json({ message: "Method not allowed" });
-
-  const session = await getServerSession(req, res, authOptions);
-
-  if (!session) {
-    return res.status(401).send({ message: "Unauthorize." });
+  if (req.method !== "POST") {
+    return res.status(405).json({ message: "Method not allowed" });
   }
 
-  const userId = session.user?.id;
-
-  if (!userId) {
-    return res.status(401).send({ message: "You must be signed in to vote." });
-  }
-
+  const userId = await requireAuth(req, res);
   const { pollId, pollOptionId } = req.body;
 
-  // Verify that post is still going on.
-  const poll = await prisma.poll.findUnique({ where: { id: pollId } });
+  if (pollId == null || pollOptionId == null) {
+    return res.status(400).json({
+      message: "Invalid pollId or pollOptionId",
+    });
+  }
 
-  if (poll && poll.endsAt <= new Date()) {
-    console.error("Poll has ended.");
-    res.status(500).json("Poll has ended.");
+  const poll = await prisma.poll.findUnique({
+    where: { id: pollId },
+  });
+
+  if (!poll) {
+    return res.status(404).json({
+      message: "Poll not found",
+    });
+  }
+
+  // Verify that post is still going on.
+  const hasFinished = isPollFinished(poll.endsAt);
+
+  if (hasFinished) {
+    return res.status(500).json({ message: "Poll has ended." });
   }
 
   try {
@@ -46,13 +52,10 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
       }),
     ]);
 
-    return res.json("Vote added");
+    return res.status(200).json({ message: "Vote added" });
   } catch (error) {
-    console.error(
-      "Failed to vote for option.",
-      { pollId, pollOptionId, userId },
-      error,
-    );
-    return res.status(500).json("Unable to vote on poll at this time.");
+    return res
+      .status(500)
+      .json({ message: "Unable to vote on poll at this time." });
   }
 };

@@ -1,24 +1,29 @@
 import prisma from "@/lib/prisma";
 import type { NextApiRequest, NextApiResponse } from "next";
-import { getServerSession } from "next-auth";
-import { authOptions } from "../auth/[...nextauth]";
+import { requireAuth } from "@/lib/auth";
 
 export default async (req: NextApiRequest, res: NextApiResponse) => {
-  if (req.method !== "GET") return res.json({ message: "Method not allowed" });
+  if (req.method !== "GET") {
+    return res.status(405).json({ message: "Method not allowed" });
+  }
 
+  const userId = await requireAuth(req, res);
   const { pollId } = req.query;
-  const session = await getServerSession(req, res, authOptions);
+
+  if (pollId == null || typeof pollId !== "string") {
+    return res.status(400).json({ message: "Invalid poll id" });
+  }
 
   const result = await prisma.poll.findUnique({
-    where: { id: pollId as string },
+    where: { id: pollId },
     include: {
       options: {
         where: {
-          pollId: pollId as string,
+          pollId: pollId,
         },
         include: {
           userVotes: {
-            where: { userId: session?.user?.id ?? "" },
+            where: { userId: userId ?? "" },
           },
         },
       },
@@ -27,10 +32,8 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
   });
 
   if (!result) {
-    res.status(404).send({
-      message: "Poll not found",
-    });
+    res.status(404).json({ message: "Poll not found" });
   }
 
-  return res.json(result);
+  return res.status(200).json(result);
 };

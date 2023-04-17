@@ -1,29 +1,16 @@
 import type { NextApiRequest, NextApiResponse } from "next";
 import prisma from "@/lib/prisma";
-import { getServerSession } from "next-auth";
-import { authOptions } from "../auth/[...nextauth]";
-
-export function generateEndDate(endDate: string) {
-  const endTime = Date.now() + parseInt(endDate) * 60 * 1000;
-
-  return new Date(endTime);
-}
+import { generateEndDate } from "@/lib/dateUtilities";
+import { requireAuth } from "@/lib/auth";
 
 export default async (req: NextApiRequest, res: NextApiResponse) => {
-  if (req.method !== "POST") return res.json({ message: "Method not allowed" });
-
-  const session = await getServerSession(req, res, authOptions);
-
-  if (!session) {
-    return res.status(401).send({ message: "Unauthorize." });
+  if (req.method !== "POST") {
+    return res.json({ message: "Method not allowed" });
   }
 
-  const userId = session.user?.id;
+  const userId = await requireAuth(req, res);
 
-  if (!userId) {
-    return res.status(401).send({ message: "You must be signed in." });
-  }
-
+  // TODO: add validations
   const { title, description, options, endDate } = req.body;
 
   try {
@@ -40,7 +27,7 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
       },
     });
 
-    return res.json(id);
+    return res.status(201).json({ message: "Poll created ", id });
   } catch (error) {
     console.error("Failed to create poll", error);
     return res.status(500).json("Internal Server Error");

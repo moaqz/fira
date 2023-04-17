@@ -48,7 +48,7 @@ function Create() {
         body: JSON.stringify(data),
       });
 
-      const id = await response.json();
+      const { id } = await response.json();
 
       router.push(`/poll/${id}`);
     } catch (error) {
