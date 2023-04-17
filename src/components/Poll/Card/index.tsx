@@ -6,7 +6,7 @@ interface PollCardProps extends Poll {}
 function PollCard(props: PollCardProps) {
   const { title, id, description } = props;
 
-  const pollUrl = "https://fira.vercel.app/poll/" + id;
+  const pollUrl = "http://localhost:3000/poll/" + id;
 
   return (
     <Link
