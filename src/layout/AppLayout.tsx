@@ -1,5 +1,4 @@
 import Header from "./Header";
-// import Footer from "./Footer";
 
 interface Props {
   children: React.ReactNode;
@@ -10,7 +9,6 @@ function AppLayout({ children }: Props) {
     <>
       <Header />
       <main className="mb-32">{children}</main>
-      {/* <Footer /> */}
     </>
   );
 }
