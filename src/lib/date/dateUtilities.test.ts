@@ -1,4 +1,5 @@
-import { isPollFinished, generateEndDate } from "./dateUtilities";
+import generateEndDate from "./generateEndDate";
+import isPollFinished from "./isPollFinished";
 import { describe, expect, it } from "vitest";
 
 describe("isPollFinished", () => {
@@ -28,7 +29,7 @@ describe("generateEndDate", () => {
   it("Should return a valid end date for 20 minutes", () => {
     const endDate = generateEndDate("20");
     const expectedEndDate = new Date(Date.now() + 20 * 60 * 1000);
-    
+
     expect(endDate).toEqual(expectedEndDate);
   });
 });

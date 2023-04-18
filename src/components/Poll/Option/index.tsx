@@ -1,20 +1,10 @@
-// Icons
 import { Cancel } from "@/components/Icons";
-
-// Components
-import { Input } from "@components/Form";
-
-// Types & Constants
+import { Input, ErrorMessage } from "@components/Form";
 import type { PollOptionProps } from "@/types/poll";
 
-function PollOption({
-  index,
-  register,
-  remove,
-  value,
-  disableRemove,
-  errors,
-}: PollOptionProps) {
+function PollOption(props: PollOptionProps) {
+  const { index, register, remove, value, disableRemove, errors } = props;
+
   return (
     <div>
       <div className="relative mb-2 flex items-center">
@@ -23,7 +13,7 @@ function PollOption({
           id={`option-${index}`}
           placeholder={`Option ${index + 1}`}
           defaultValue={value}
-          {...register(`options.${index}.text`, { required: true })}
+          {...register(`options.${index}.text`)}
         />
 
         {!disableRemove && (
@@ -37,7 +27,7 @@ function PollOption({
         )}
       </div>
       {errors.options?.[index]?.text && (
-        <p className="text-bold text-red-500">Blank option not allowed</p>
+        <ErrorMessage>Blank option not allowed</ErrorMessage>
       )}
     </div>
   );

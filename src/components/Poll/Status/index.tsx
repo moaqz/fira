@@ -1,4 +1,4 @@
-import { isPollFinished } from "@/lib/dateUtilities";
+import isPollFinished  from "@/lib/date/isPollFinished";
 import clsx from "clsx";
 
 interface PollStatusProps {

@@ -4,6 +4,7 @@ import type {
   UseFieldArrayRemove,
   UseFormRegister,
 } from "react-hook-form";
+import type { CreatePoll } from "@lib/validations/createPoll";
 
 export type CreatePollType = {
   description?: string | undefined;
@@ -16,17 +17,17 @@ export type CreatePollType = {
 
 export interface PollOptionProps {
   index: number;
-  register: UseFormRegister<CreatePollType>;
-  errors: FieldErrors<CreatePollType>;
+  register: UseFormRegister<CreatePoll>;
+  errors: FieldErrors<CreatePoll>;
   remove: UseFieldArrayRemove;
   value: string;
   disableRemove: boolean;
 }
 
 export interface PollOptionsProps {
-  control: Control<CreatePollType>;
-  errors: FieldErrors<CreatePollType>;
-  register: UseFormRegister<CreatePollType>;
+  control: Control<CreatePoll>;
+  errors: FieldErrors<CreatePoll>;
+  register: UseFormRegister<CreatePoll>;
   maxOptions?: number;
 }
 

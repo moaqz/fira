@@ -1,7 +1,7 @@
 import type { NextApiRequest, NextApiResponse } from "next";
 import prisma from "@/lib/prisma";
 import { requireAuth } from "@/lib/auth";
-import { isPollFinished } from "@/lib/dateUtilities";
+import isPollFinished from "@/lib/date/isPollFinished";
 
 export default async (req: NextApiRequest, res: NextApiResponse) => {
   if (req.method !== "POST") {

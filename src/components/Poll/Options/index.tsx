@@ -1,15 +1,8 @@
-// Icons
 import { Plus } from "@components/Icons";
-
-// Components
 import Button from "@/components/Button";
 import Stack from "@/components/Stack";
 import PollOption from "../Option";
-
-// Types & Constants
 import type { PollOptionsProps } from "@/types/poll";
-
-// External Libraries
 import { useFieldArray } from "react-hook-form";
 
 function PollOptions({

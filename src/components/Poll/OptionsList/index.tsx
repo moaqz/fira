@@ -2,7 +2,7 @@ import { OptionType } from "@/types/poll";
 import { PollOptionVote } from "@/components/Poll";
 
 import { useState } from "react";
-import { isPollFinished } from "@/lib/dateUtilities";
+import isPollFinished from "@/lib/date/isPollFinished";
 
 interface PollOptionsListProps {
   endsAt: string;

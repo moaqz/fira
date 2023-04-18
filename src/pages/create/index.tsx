@@ -1,25 +1,23 @@
-// Components
 import Button from "@/components/Button";
-import { Input, Label, TextArea } from "@components/Form";
 import Stack from "@/components/Stack";
+import { Input, Label, TextArea, ErrorMessage } from "@components/Form";
 import { PollOptions } from "@components/Poll";
+import AppLayout from "@/layout/AppLayout";
 
-// React
 import { useState } from "react";
 import { useRouter } from "next/router";
 
-// Lib
-import type { CreatePollType } from "@/types/poll";
-import { useForm } from "react-hook-form";
-import { toast } from "react-hot-toast";
-import { NextSeo } from "next-seo";
-import AppLayout from "@/layout/AppLayout";
+import {
+  CreatePollSchema,
+  type CreatePoll,
+} from "@/lib/validations/createPoll";
 
-export function addDays(days: number) {
-  const result = new Date();
-  result.setDate(result.getDate() + days);
-  return result;
-}
+import { NextSeo } from "next-seo";
+import { type SubmitHandler, useForm } from "react-hook-form";
+import { toast } from "react-hot-toast";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { createPoll } from "@/services/pollService";
+import generateEndDate from "@/lib/date/generateEndDate";
 
 function Create() {
   const [isLoading, setIsLoading] = useState<boolean>(false);
@@ -30,32 +28,28 @@ function Create() {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm<CreatePollType>({
+  } = useForm<CreatePoll>({
     defaultValues: {
       options: [{ text: "" }, { text: "" }],
     },
+    resolver: zodResolver(CreatePollSchema),
   });
 
-  const onSubmit = async (data: CreatePollType) => {
+  const onSubmit: SubmitHandler<CreatePoll> = async (data) => {
     setIsLoading(true);
 
     try {
-      const response = await fetch("/api/poll/create", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(data),
-      });
+      const endDate = generateEndDate(data.endDate as string);
 
-      const { id } = await response.json();
+      const id = await createPoll({
+        ...data,
+        endDate: endDate,
+      });
 
       router.push(`/poll/${id}`);
     } catch (error) {
-      console.error(error);
-      toast.error("An error occurred while creating the poll");
-    } finally {
       setIsLoading(false);
+      toast.error("An error occurred while creating the poll");
     }
   };
 
@@ -76,20 +70,10 @@ function Create() {
               id="title"
               placeholder="Type your question here"
               aria-invalid={errors.title ? "true" : "false"}
-              {...register("title", {
-                required: "You must include a title.",
-                maxLength: {
-                  value: 200,
-                  message: "Title must contain a maximum of 200 characters",
-                },
-              })}
+              {...register("title")}
             />
-            {errors.title?.type === "required" && (
-              <p className="text-bold text-red-500">{errors.title?.message}</p>
-            )}
-
-            {errors.title?.type === "maxLength" && (
-              <p className="text-bold text-red-500">{errors.title?.message}</p>
+            {errors.title && (
+              <ErrorMessage>{errors.title?.message}</ErrorMessage>
             )}
           </Stack>
 
