@@ -3,23 +3,22 @@ import clsx from "clsx";
 import Spinner from "@components/Loaders/Spinner";
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
-  type?: "submit" | "reset" | "button";
+  type?: "submit" | "button";
   children?: ReactNode;
   isDisabled?: boolean;
   isLoading?: boolean;
   loadingText?: string;
   className?: string;
-  variant?: "ghost" | "pink" | "gray";
+  variant?: "pink" | "gray";
   size?: "medium" | "large";
 }
 
 export const VARIANTS = {
-  ghost: "bg-transparent hover:bg-brand-surface text-white",
   gray: "bg-brand-surface hover:bg-brand-surface2 text-white",
   pink: "bg-brand-mauve hover:bg-brand-mauve2 text-black font-semibold",
 };
 
-const SIZES = {
+export const SIZES = {
   medium: "h-10 px-4",
   large: "h-12 px-6",
 };
@@ -29,7 +28,7 @@ function Button({
   children,
   isDisabled = false,
   className = "",
-  variant = "ghost",
+  variant = "gray",
   size = "medium",
   isLoading = false,
   loadingText = "Loading...",

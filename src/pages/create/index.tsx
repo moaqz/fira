@@ -1,5 +1,4 @@
 import Button from "@/components/Button";
-import Stack from "@/components/Stack";
 import { Input, Label, TextArea, ErrorMessage } from "@components/Form";
 import { PollOptions } from "@components/Poll";
 import AppLayout from "@/layout/AppLayout";
@@ -12,12 +11,12 @@ import {
   type CreatePoll,
 } from "@/lib/validations/createPoll";
 
-import { NextSeo } from "next-seo";
 import { type SubmitHandler, useForm } from "react-hook-form";
 import { toast } from "react-hot-toast";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { createPoll } from "@/services/pollService";
 import generateEndDate from "@/lib/date/generateEndDate";
+import Head from "next/head";
 
 function Create() {
   const [isLoading, setIsLoading] = useState<boolean>(false);
@@ -55,7 +54,9 @@ function Create() {
 
   return (
     <AppLayout>
-      <NextSeo title="Create a Poll" />
+      <Head>
+        <title>Create a Poll</title>
+      </Head>
       <div className="sm:px-4">
         <h1 className="mx-auto my-12 max-w-xl px-4 text-center text-2xl font-semibold leading-tight">
           Complete the fields to create your poll.
@@ -64,7 +65,7 @@ function Create() {
           className="mx-auto max-w-3xl space-y-4 border border-brand-surface bg-brand-mantle p-4 sm:rounded sm:p-6"
           onSubmit={handleSubmit(onSubmit)}
         >
-          <Stack>
+          <div className="flex flex-col gap-2">
             <Label id="title">Title</Label>
             <Input
               id="title"
@@ -75,16 +76,16 @@ function Create() {
             {errors.title && (
               <ErrorMessage>{errors.title?.message}</ErrorMessage>
             )}
-          </Stack>
+          </div>
 
-          <Stack>
+          <div className="flex flex-col gap-2">
             <Label id="description" optional>
               Description
             </Label>
             <TextArea id="description" {...register("description")} />
-          </Stack>
+          </div>
 
-          <Stack>
+          <div className="flex flex-col gap-2">
             <Label id="end-date">Ends in</Label>
             <select
               id="end-date"
@@ -96,7 +97,7 @@ function Create() {
               <option value="15">15 minutes</option>
               <option value="20">20 minutes</option>
             </select>
-          </Stack>
+          </div>
 
           <PollOptions control={control} errors={errors} register={register} />
 

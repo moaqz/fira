@@ -13,7 +13,8 @@ export const CreatePollSchema = z.object({
         text: z.string().nonempty(),
       }),
     )
-    .min(2, { message: "You must include at least two options." }),
+    .min(2, { message: "You must include at least two options." })
+    .max(5, { message: "You must include at most five options." }),
 });
 
 export type CreatePoll = z.infer<typeof CreatePollSchema>;

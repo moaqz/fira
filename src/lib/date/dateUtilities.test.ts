@@ -1,6 +1,5 @@
 import generateEndDate from "./generateEndDate";
 import isPollFinished from "./isPollFinished";
-import { describe, expect, it } from "vitest";
 
 describe("isPollFinished", () => {
   it("Returns true if poll has finished", () => {

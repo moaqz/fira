@@ -1,6 +1,5 @@
 import { Plus } from "@components/Icons";
 import Button from "@/components/Button";
-import Stack from "@/components/Stack";
 import PollOption from "../Option";
 import type { PollOptionsProps } from "@/types/poll";
 import { useFieldArray } from "react-hook-form";
@@ -18,7 +17,7 @@ function PollOptions({
 
   return (
     <>
-      <Stack>
+      <div className="flex flex-col gap-2">
         <p className="text-lg font-semibold text-brand-subtext">Options</p>
         {fields?.map((field: any, index: number) => {
           return (
@@ -33,7 +32,7 @@ function PollOptions({
             />
           );
         })}
-      </Stack>
+      </div>
 
       {fields?.length < maxOptions && (
         <Button

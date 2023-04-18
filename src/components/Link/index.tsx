@@ -5,7 +5,7 @@ import clsx from "clsx";
 interface LinkProps {
   href: string;
   children: React.ReactNode;
-  variant?: "ghost" | "pink" | "gray";
+  variant?: "pink" | "gray";
 }
 
 export function Link(props: LinkProps) {
