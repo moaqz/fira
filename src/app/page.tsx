@@ -1,6 +1,6 @@
 import Footer from "@/layout/Footer";
-import { Rocket, Star } from "@components/Icons";
-import { Link, ExternalLink } from "@components/Link";
+import { RocketIcon, StarIcon } from "@ui/icons";
+import { Link, ExternalLink } from "@ui/link";
 
 function Home() {
   return (
@@ -22,11 +22,11 @@ function Home() {
           </div>
           <div className="mt-8 flex flex-col justify-center gap-2 sm:flex-row">
             <Link href="/dash">
-              <Rocket />
+              <RocketIcon />
               Get Started
             </Link>
             <ExternalLink href="https://github.com/techwithmat/fira">
-              <Star />
+              <StarIcon />
               Star on GitHub
             </ExternalLink>
           </div>
