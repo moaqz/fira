@@ -1,4 +1,5 @@
 import RocketIcon from "./rocketIcon";
 import StarIcon from "./starIcon";
+import GithubIcon from "./githubIcon";
 
-export { RocketIcon, StarIcon };
+export { RocketIcon, StarIcon, GithubIcon };
