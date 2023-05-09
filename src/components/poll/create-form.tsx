@@ -8,7 +8,7 @@ import { useRouter } from "next/navigation";
 
 import { Button } from "@ui/index";
 import FormValidation from "@components/errors/form-validation";
-import PollOptions from "@components/poll/poll-options";
+import PollOptions from "@components/poll/create-form-options";
 import { Input, Label, TextArea } from "@ui/index";
 import { createPoll } from "@/services/create-poll";
 import generateEndDate from "@/lib/date/generateEndDate";
