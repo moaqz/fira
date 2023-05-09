@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 
-import Footer from "@/layout/Footer";
+import Footer from "@ui/footer";
 import LoginButton from "@/components/auth/login-button";
 
 export const metadata: Metadata = {

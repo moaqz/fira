@@ -1,10 +1,9 @@
 import { Header } from "@ui/index";
-import { authOptions } from "@/pages/api/auth/[...nextauth]";
-import { getServerSession } from "next-auth";
 import PollPreview from "@components/poll/preview";
+import { getUserSession } from "@/lib/get-user-session";
 
 async function Page({ params }: { params: { pollId: string } }) {
-  const session = await getServerSession(authOptions);
+  const session = await getUserSession();
   const pollId = params.pollId;
 
   return (

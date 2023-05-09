@@ -1,10 +1,9 @@
+import { getUserSession } from "@/lib/get-user-session";
 import isPollFinished from "@/lib/date/isPollFinished";
-import { authOptions } from "@/pages/api/auth/[...nextauth]";
-import { getServerSession } from "next-auth";
 import { NextResponse } from "next/server";
 
 export async function POST(request: Request) {
-  const session = await getServerSession(authOptions);
+  const session = await getUserSession();
 
   if (!session) {
     return NextResponse.json({ message: "Unauthorized" }, { status: 401 });

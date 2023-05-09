@@ -1,10 +1,9 @@
 import { CreatePollSchema } from "@/lib/validations/createPoll";
-import { authOptions } from "@/pages/api/auth/[...nextauth]";
-import { getServerSession } from "next-auth";
+import { getUserSession } from "@/lib/get-user-session";
 import { NextResponse } from "next/server";
 
 export async function POST(request: Request) {
-  const session = await getServerSession(authOptions);
+  const session = await getUserSession();
 
   if (!session) {
     return NextResponse.json("Unauthorized", { status: 401 });

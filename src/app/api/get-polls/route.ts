@@ -1,10 +1,9 @@
-import { authOptions } from "@/pages/api/auth/[...nextauth]";
-import { getServerSession } from "next-auth";
 import { NextResponse } from "next/server";
 import prisma from "@/lib/prisma";
+import { getUserSession } from "@/lib/get-user-session";
 
 export async function GET(request: Request) {
-  const session = await getServerSession(authOptions);
+  const session = await getUserSession();
 
   if (!session) {
     return NextResponse.json("Unauthorized", { status: 404 });

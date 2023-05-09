@@ -56,7 +56,9 @@ function PollPreview({ pollId }: { pollId: string }) {
                     totalCount={option.totalCount}
                     pollId={option.pollId}
                     userVotes={option.userVotes}
+                    // @ts-ignore
                     disabled={hasFinished || hasVoted}
+                    // @ts-ignore
                     totalVotes={totalVotes}
                   />
                 );

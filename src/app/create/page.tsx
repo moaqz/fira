@@ -1,5 +1,4 @@
-import { authOptions } from "@/pages/api/auth/[...nextauth]";
-import { getServerSession } from "next-auth";
+import { getUserSession } from "@/lib/get-user-session";
 import type { Metadata } from "next";
 
 import Header from "@ui/header";
@@ -10,7 +9,7 @@ export const metadata: Metadata = {
 };
 
 async function Create() {
-  const session = await getServerSession(authOptions);
+  const session = await getUserSession();
 
   return (
     <>
