@@ -1,15 +1,26 @@
-import { Plus } from "@components/Icons";
-import Button from "@/components/Button";
-import PollOption from "../Option";
-import type { PollOptionsProps } from "@/types/poll";
-import { useFieldArray } from "react-hook-form";
+import {
+  Control,
+  FieldErrors,
+  UseFormRegister,
+  useFieldArray,
+} from "react-hook-form";
+
+import { PlusIcon } from "@ui/icons";
+import Button from "@components/Button";
+import PollOption from "@components/poll/poll-option";
+import type { CreatePoll } from "@/lib/validations/createPoll";
 
 function PollOptions({
   control,
   register,
   maxOptions = 5,
   errors,
-}: PollOptionsProps) {
+}: {
+  control: Control<CreatePoll>;
+  errors: FieldErrors<CreatePoll>;
+  register: UseFormRegister<CreatePoll>;
+  maxOptions?: number;
+}) {
   const { fields, append, remove } = useFieldArray({
     control,
     name: "options",
@@ -19,7 +30,7 @@ function PollOptions({
     <>
       <div className="flex flex-col gap-2">
         <p className="text-lg font-semibold text-brand-subtext">Options</p>
-        {fields?.map((field: any, index: number) => {
+        {fields?.map((field, index) => {
           return (
             <PollOption
               index={index}
@@ -35,13 +46,8 @@ function PollOptions({
       </div>
 
       {fields?.length < maxOptions && (
-        <Button
-          variant="gray"
-          onClick={() => {
-            append({ text: "" });
-          }}
-        >
-          <Plus /> Add option
+        <Button variant="gray" onClick={() => append({ text: "" })}>
+          <PlusIcon /> Add option
         </Button>
       )}
     </>

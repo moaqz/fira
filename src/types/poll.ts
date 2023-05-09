@@ -1,36 +1,3 @@
-import type {
-  Control,
-  FieldErrors,
-  UseFieldArrayRemove,
-  UseFormRegister,
-} from "react-hook-form";
-import type { CreatePoll } from "@lib/validations/createPoll";
-
-export type CreatePollType = {
-  description?: string | undefined;
-  title: string;
-  endDate: string;
-  options: {
-    text: string;
-  }[];
-};
-
-export interface PollOptionProps {
-  index: number;
-  register: UseFormRegister<CreatePoll>;
-  errors: FieldErrors<CreatePoll>;
-  remove: UseFieldArrayRemove;
-  value: string;
-  disableRemove: boolean;
-}
-
-export interface PollOptionsProps {
-  control: Control<CreatePoll>;
-  errors: FieldErrors<CreatePoll>;
-  register: UseFormRegister<CreatePoll>;
-  maxOptions?: number;
-}
-
 export type UserVotes = {
   pollOptionId: string;
   pollId: string;
