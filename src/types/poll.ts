@@ -65,3 +65,14 @@ export type PollType = {
   options: OptionType[];
   user: UserType;
 };
+
+export type Poll = {
+  id: string;
+  title: string;
+  description: string;
+  totalCount: number;
+  createdAt: string;
+  endsAt: string;
+  updatedAt: string;
+  userId: string;
+};
