@@ -1,13 +1,12 @@
-import { Button } from "@ui/index";
-import { ClipboardIcon } from "@ui/icons";
+"use client";
+
 import { toast } from "sonner";
 
-interface PollLinkProps {
-  id: string;
-}
+import { ClipboardIcon } from "@ui/icons";
+import { Button } from "@ui/index";
 
-function PollLink(props: PollLinkProps) {
-  const link = "https://fira.vercel.app/poll/" + props.id;
+function PollShareLink({ pollId }: { pollId: string }) {
+  const link = "https://fira.vercel.app/poll/" + pollId;
 
   const handleClick = () => {
     navigator.clipboard
@@ -34,4 +33,4 @@ function PollLink(props: PollLinkProps) {
   );
 }
 
-export default PollLink;
+export default PollShareLink;

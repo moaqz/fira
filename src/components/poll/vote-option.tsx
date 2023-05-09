@@ -1,55 +1,44 @@
-import { OptionType } from "@/types/poll";
+import { VotePollOption } from "@/services/vote-poll-option";
+import { PollOption } from "@/types/poll";
+import { useQueryClient } from "@tanstack/react-query";
 import clsx from "clsx";
 import { useState } from "react";
 import { toast } from "sonner";
 
-interface PollOptionVoteProps extends OptionType {
+type PollVoteOption = {
   disabled: boolean;
   totalVotes: number;
-  setHasVoted: (hasVoted: boolean) => void;
-}
+} & PollOption;
 
-function PollOptionVote({
+function PollVoteOption({
   text,
-  totalCount,
   pollId,
-  id,
+  totalCount,
   userVotes,
+  id,
   disabled,
   totalVotes,
-  setHasVoted,
-}: PollOptionVoteProps) {
+}: PollVoteOption) {
   const [hasVotedOption, setHasVotedOption] = useState(
     userVotes[0]?.pollOptionId === id,
   );
+
   const percent = totalCount ? Math.round((totalCount * 100) / totalVotes) : 0;
+  const queryClient = useQueryClient();
 
   const handleVote = async () => {
+    if (hasVotedOption) return;
+
     setHasVotedOption(true);
-    setHasVoted(true);
 
     try {
-      const response = await fetch("/api/poll/vote", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          pollId,
-          pollOptionId: id,
-        }),
-      });
-
-      if (!response.ok) {
-        throw new Error();
-      }
+      await VotePollOption({ pollId, pollOptionId: id });
 
       toast.success("Vote added successfully!");
+      queryClient.invalidateQueries({ queryKey: ["poll"] });
     } catch (error) {
-      console.error(error);
       toast.error("An error occurred while adding your vote");
       setHasVotedOption(false);
-      setHasVoted(false);
     }
   };
 
@@ -70,4 +59,4 @@ function PollOptionVote({
   );
 }
 
-export default PollOptionVote;
+export default PollVoteOption;

@@ -1,6 +1,5 @@
-import Footer from "@/layout/Footer";
 import { RocketIcon, StarIcon } from "@ui/icons";
-import { Link, ExternalLink } from "@ui/link";
+import { Link, ExternalLink, Footer } from "@ui/index";
 
 function Home() {
   return (
