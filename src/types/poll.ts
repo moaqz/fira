@@ -1,38 +1,3 @@
-export type UserVotes = {
-  pollOptionId: string;
-  pollId: string;
-  userId: string;
-};
-
-export type OptionType = {
-  id: string;
-  text: string;
-  totalCount: number;
-  pollId: string;
-  userVotes: UserVotes[];
-};
-
-export type UserType = {
-  email: string;
-  id: string;
-  image: string;
-  name: string;
-  emailVerified: string | null;
-};
-
-export type PollType = {
-  id: string;
-  title: string;
-  description: string;
-  totalCount: number;
-  createdAt: string;
-  endsAt: string;
-  updatedAt: string;
-  userId: string;
-  options: OptionType[];
-  user: UserType;
-};
-
 export type Poll = {
   id: string;
   title: string;
@@ -43,3 +8,28 @@ export type Poll = {
   updatedAt: string;
   userId: string;
 };
+
+export type PollOption = {
+  id: string;
+  text: string;
+  totalCount: number;
+  pollId: string;
+  userVotes: UserVote[];
+};
+
+export type UserVote = {
+  pollOptionId: string;
+  pollId: string;
+  userId: string;
+};
+
+export type User = {
+  id: string;
+  name: string;
+  image: string;
+};
+
+export type PollInfo = {
+  options: PollOption[];
+  user: User;
+} & Poll;
