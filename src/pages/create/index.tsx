@@ -12,7 +12,7 @@ import {
 } from "@/lib/validations/createPoll";
 
 import { type SubmitHandler, useForm } from "react-hook-form";
-import { toast } from "react-hot-toast";
+import { toast } from "sonner";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { createPoll } from "@/services/pollService";
 import generateEndDate from "@/lib/date/generateEndDate";

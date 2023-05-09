@@ -3,7 +3,7 @@ import Button from "@/components/Button";
 import { Github } from "@components/Icons";
 
 import { signIn } from "next-auth/react";
-import { toast } from "react-hot-toast";
+import { toast } from "sonner";
 
 import { NextSeo } from "next-seo";
 import { useState } from "react";

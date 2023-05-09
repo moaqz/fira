@@ -1,6 +1,6 @@
 import Button from "@/components/Button";
 import { PasteClipboard } from "@/components/Icons";
-import { toast } from "react-hot-toast";
+import { toast } from "sonner";
 
 interface PollLinkProps {
   id: string;

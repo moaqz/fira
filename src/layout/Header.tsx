@@ -1,6 +1,6 @@
 import Logo from "@/components/Logo";
 import { signOut, useSession } from "next-auth/react";
-import { toast } from "react-hot-toast";
+import { toast } from "sonner";
 import Button from "@/components/Button";
 
 function Navbar() {

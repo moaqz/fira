@@ -3,10 +3,7 @@ import type { Session } from "next-auth";
 
 // Styles
 import "@/styles/globals.css";
-import { Toaster } from "react-hot-toast";
-
-// Layout
-import AppLayout from "@/layout/AppLayout";
+import { Toaster } from "sonner";
 
 // Auth
 import { SessionProvider } from "next-auth/react";
@@ -30,7 +27,7 @@ const App: AppType<{ session: Session | null }> = ({
           <Component {...pageProps} />
         </SWRConfig>
       </SessionProvider>
-      <Toaster reverseOrder={false} />
+      <Toaster richColors position="bottom-center" closeButton />
     </>
   );
 };

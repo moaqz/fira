@@ -1,7 +1,7 @@
 import { OptionType } from "@/types/poll";
 import clsx from "clsx";
 import { useState } from "react";
-import { toast } from "react-hot-toast";
+import { toast } from "sonner";
 
 interface PollOptionVoteProps extends OptionType {
   disabled: boolean;

@@ -1,9 +1,9 @@
 "use client";
 
-import { Toaster } from "react-hot-toast";
+import { Toaster } from "sonner";
 
 function ToasterProvider() {
-  return <Toaster reverseOrder={false} />;
+  return <Toaster richColors position="bottom-center" closeButton />;
 }
 
 export default ToasterProvider;
