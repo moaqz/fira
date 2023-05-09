@@ -28,6 +28,7 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
   }
 
   // Verify that post is still going on.
+  // @ts-ignore
   const hasFinished = isPollFinished(poll.endsAt);
 
   if (hasFinished) {
