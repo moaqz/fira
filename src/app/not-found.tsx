@@ -1,7 +1,6 @@
-import Footer from "@/layout/Footer";
-import { Link } from "@ui/index";
+import { Link, Footer } from "@ui/index";
 
-function Error404() {
+function NotFound() {
   return (
     <>
       <section className="grid h-screen place-content-center">
@@ -12,7 +11,13 @@ function Error404() {
           <p className="my-4 text-center text-xl text-brand-subtext">
             The page you are trying to access does not exist.
           </p>
-          <Link href="/">Go Home</Link>
+          {/** TODO: Replace this for a Link  */}
+          <a
+            href="/"
+            className="flex h-12 items-center justify-center gap-3 whitespace-nowrap rounded-md bg-brand-mauve px-6 font-semibold text-black transition-colors duration-200 hover:bg-brand-mauve2"
+          >
+            Go Home
+          </a>
         </div>
       </section>
       <Footer />
@@ -20,4 +25,4 @@ function Error404() {
   );
 }
 
-export default Error404;
+export default NotFound;
