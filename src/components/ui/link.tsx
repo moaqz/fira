@@ -1,5 +1,5 @@
 import NextLink from "next/link";
-import { VARIANTS } from "../Button";
+import { VARIANTS } from "./button";
 import clsx from "clsx";
 
 interface LinkProps {

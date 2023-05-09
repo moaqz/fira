@@ -5,6 +5,7 @@ import UsersIcon from "./usersIcon";
 import ExclamationTriangleIcon from "./exclamationTriangleIcon";
 import CancelIcon from "./cancelIcon";
 import PlusIcon from "./plusIcon";
+import ClipboardIcon from "./clipboardIcon";
 
 export {
   RocketIcon,
@@ -14,4 +15,5 @@ export {
   ExclamationTriangleIcon,
   CancelIcon,
   PlusIcon,
+  ClipboardIcon,
 };

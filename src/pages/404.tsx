@@ -1,5 +1,5 @@
 import Footer from "@/layout/Footer";
-import { Link } from "@/components/Link";
+import { Link } from "@ui/index";
 
 function Error404() {
   return (

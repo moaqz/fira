@@ -1,6 +1,6 @@
 import { vi } from "vitest";
 import { render, fireEvent } from "@testing-library/react";
-import Button, { VARIANTS, SIZES } from "./index";
+import Button, { VARIANTS, SIZES } from "../components/ui/button";
 
 describe("Button", () => {
   it("renders the text content correctly", async () => {

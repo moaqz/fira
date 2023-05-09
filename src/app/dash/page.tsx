@@ -3,8 +3,8 @@ import { getServerSession } from "next-auth";
 import type { Metadata } from "next";
 
 import Header from "@ui/header";
-import { Link } from "@/components/Link";
-import { Plus } from "@/components/Icons";
+import { Link } from "@ui/index";
+import { PlusIcon } from "@ui/icons";
 import PollFeed from "@/components/poll/poll-feed";
 
 export const metadata: Metadata = {
@@ -21,7 +21,7 @@ async function Dashboard() {
         <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
           <h1 className="text-2xl font-semibold">Dashboard</h1>
           <Link href="/create" variant="pink">
-            <Plus /> <span>Create poll</span>
+            <PlusIcon /> <span>Create poll</span>
           </Link>
         </div>
 

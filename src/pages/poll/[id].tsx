@@ -2,7 +2,7 @@ import type { PollType } from "@/types/poll";
 import { PollStatus, PollLink, PollOptionsList } from "@/components/Poll";
 
 import { useRouter } from "next/router";
-import LineLoader from "@/components/Loaders/LineLoader";
+import LineLoader from "@/components/loader/lineLoader";
 import { NextSeo } from "next-seo";
 import AppLayout from "@/layout/AppLayout";
 import useSWR from "swr";

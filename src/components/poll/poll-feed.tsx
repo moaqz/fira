@@ -7,7 +7,7 @@ import type { Poll } from "@/types/poll";
 import PollCard from "@components/poll/card";
 import { ExclamationTriangleIcon } from "@ui/icons";
 import LineLoader from "@/components/loader/lineLoader";
-import Button from "@components/Button";
+import { Button } from "@ui/index";
 
 function PollFeed() {
   const { data, isLoading, fetchNextPage, isFetching, isError, hasNextPage } =

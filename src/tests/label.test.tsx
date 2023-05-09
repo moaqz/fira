@@ -1,5 +1,5 @@
 import { render } from "@testing-library/react";
-import Label from "./index";
+import Label from "../components/ui/label";
 
 describe("Label", () => {
   it("renders the label text", () => {

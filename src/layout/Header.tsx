@@ -1,7 +1,6 @@
-import Logo from "@/components/Logo";
 import { signOut, useSession } from "next-auth/react";
 import { toast } from "sonner";
-import Button from "@/components/Button";
+import { Button, Logo } from "@ui/index";
 
 function Navbar() {
   const { data: session } = useSession();

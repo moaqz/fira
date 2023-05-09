@@ -6,7 +6,7 @@ import {
 } from "react-hook-form";
 
 import { PlusIcon } from "@ui/icons";
-import Button from "@components/Button";
+import { Button } from "@ui/index";
 import PollOption from "@components/poll/poll-option";
 import type { CreatePoll } from "@/lib/validations/createPoll";
 

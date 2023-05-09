@@ -1,7 +1,5 @@
-import { LineLoaderProps as SpinnerProps } from "./LineLoader";
-
-function Spinner(props: SpinnerProps) {
-  const text = props.text ?? "Loading...";
+function Spinner({ text }: { text?: string }) {
+  const content = text ?? "Loading...";
 
   return (
     <>
@@ -13,7 +11,7 @@ function Spinner(props: SpinnerProps) {
       >
         <circle cx="50" cy="50" r="20" strokeWidth={5} />
       </svg>
-      {text}
+      {content}
     </>
   );
 }

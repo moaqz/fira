@@ -6,7 +6,7 @@ import { toast } from "sonner";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useRouter } from "next/navigation";
 
-import Button from "@/components/Button";
+import { Button } from "@ui/index";
 import FormValidation from "@components/errors/form-validation";
 import PollOptions from "@components/poll/poll-options";
 import { Input, Label, TextArea } from "@ui/index";
