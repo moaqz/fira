@@ -12,24 +12,24 @@ import PollVoteOption from "./vote-option";
 import isPollFinished from "@/lib/date/isPollFinished";
 
 function PollPreview({ pollId }: { pollId: string }) {
-  const { data, isError, isLoading, isRefetching, isFetching } =
+  const { data, isError, isLoading, isRefetching, isFetching, error } =
     useQuery<PollInfo>({
       queryKey: ["poll"],
       queryFn: () => GetPollById(pollId),
       refetchOnWindowFocus: false,
     });
 
-  const hasVoted = data?.options.some((option) => option.userVotes.length > 0);
-  const hasFinished = data && isPollFinished(data.endsAt);
-  const totalVotes = data?.options.reduce((a, b) => a + b.totalCount, 0);
-
   if (isLoading || isRefetching || isFetching) {
     return <LineLoader text="Loading Poll Information." />;
   }
 
-  if (isError) {
+  if (isError || error || !data) {
     notFound();
   }
+
+  const hasVoted = data.options.some((option) => option.userVotes.length > 0);
+  const hasFinished = isPollFinished(data.endsAt);
+  const totalVotes = data.options.reduce((a, b) => a + b.totalCount, 0);
 
   return (
     <>
@@ -56,9 +56,7 @@ function PollPreview({ pollId }: { pollId: string }) {
                     totalCount={option.totalCount}
                     pollId={option.pollId}
                     userVotes={option.userVotes}
-                    // @ts-ignore
                     disabled={hasFinished || hasVoted}
-                    // @ts-ignore
                     totalVotes={totalVotes}
                   />
                 );
