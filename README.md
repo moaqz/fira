@@ -23,7 +23,7 @@
 
 ## [🔧] How to run it locally
 
-> 🚧 You will need [Git](https://git-scm.com/downloads) and [Nodej.js (version 16 or higher)](https://nodejs.org/en) installed.
+> 🚧 You will need [Git](https://git-scm.com/downloads) and [Node.js (version 16 or higher)](https://nodejs.org/en) installed.
 
 ### **Installation:**
 
