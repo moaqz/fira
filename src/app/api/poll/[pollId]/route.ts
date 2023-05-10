@@ -1,6 +1,7 @@
 import prisma from "@/lib/prisma";
 import { NextResponse } from "next/server";
 import { getUserSession } from "@/lib/get-user-session";
+import isPollFinished from "@/lib/date/isPollFinished";
 
 export async function GET(
   _request: Request,
@@ -40,7 +41,13 @@ export async function GET(
       return NextResponse.json({ message: "Poll not found" }, { status: 404 });
     }
 
-    return NextResponse.json(poll);
+    // @ts-ignore
+    const hasFinished = isPollFinished(poll.endsAt);
+
+    return NextResponse.json({
+      ...poll,
+      hasFinished,
+    });
   } catch (error) {
     return NextResponse.json("Internal server error", { status: 500 });
   }

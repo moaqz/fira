@@ -32,4 +32,5 @@ export type User = {
 export type PollInfo = {
   options: PollOption[];
   user: User;
+  hasFinished: boolean;
 } & Poll;
