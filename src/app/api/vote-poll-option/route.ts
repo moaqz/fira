@@ -1,6 +1,7 @@
 import { getUserSession } from "@/lib/get-user-session";
 import isPollFinished from "@/lib/date/isPollFinished";
 import { NextResponse } from "next/server";
+import prisma from "@/lib/prisma";
 
 export async function POST(request: Request) {
   const session = await getUserSession();
