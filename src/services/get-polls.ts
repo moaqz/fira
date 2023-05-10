@@ -1,9 +1,11 @@
+import {BASE_URL } from '@lib/constants'
+
 export async function GetPolls({ pageParam }: { pageParam?: string }) {
   const nextCursor = pageParam != null;
 
   const URL = nextCursor
-    ? `http://localhost:3000/api/get-polls?cursor=${pageParam}`
-    : "http://localhost:3000/api/get-polls";
+    ? `${BASE_URL}/api/get-polls?cursor=${pageParam}`
+    : `${BASE_URL}/api/get-polls`;
 
   const res = await fetch(URL);
 
