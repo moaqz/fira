@@ -15,7 +15,7 @@ export default async function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className="bg-background bg-cover bg-center font-sans text-white">
+      <body className="bg-background font-sans text-white">
         <Providers>{children}</Providers>
       </body>
     </html>

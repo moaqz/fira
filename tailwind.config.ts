@@ -21,7 +21,7 @@ export default {
         },
       },
       backgroundImage: {
-        background: "url('/background.svg')",
+        background: "radial-gradient(#11111b, #181825)",
       },
     },
   },
