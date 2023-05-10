@@ -1,7 +1,7 @@
 "use client";
 
-import { toast } from "sonner";
 import { signOut } from "next-auth/react";
+import { toast } from "sonner";
 
 import { Button } from "@ui/index";
 
@@ -12,9 +12,7 @@ function LogoutButton() {
         callbackUrl: "/",
       });
     } catch (error) {
-      toast.error("An error occurred while logout. Please try later.", {
-        icon: "🤔",
-      });
+      toast.error("An error occurred while logout. Please try later.");
     }
   };
 

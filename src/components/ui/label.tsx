@@ -10,10 +10,10 @@ function Label({ children, id, optional = false, ...props }: LabelProps) {
   return (
     <label
       htmlFor={id}
-      className="text-lg font-semibold text-brand-subtext"
+      className="space-x-1 text-lg font-semibold text-brand-subtext"
       {...props}
     >
-      {children}{" "}
+      <span>{children}</span>
       {optional && <span className="text-sm text-brand-mauve">(optional)</span>}
     </label>
   );

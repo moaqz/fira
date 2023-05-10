@@ -1,4 +1,4 @@
-import {BASE_URL } from '@lib/constants'
+import { BASE_URL } from "@lib/constants";
 
 export async function GetPolls({ pageParam }: { pageParam?: string }) {
   const nextCursor = pageParam != null;

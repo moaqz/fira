@@ -1,9 +1,10 @@
-import { VotePollOption } from "@/services/vote-poll-option";
-import { PollOption } from "@/types/poll";
-import { useQueryClient } from "@tanstack/react-query";
 import clsx from "clsx";
 import { useState } from "react";
+import { useQueryClient } from "@tanstack/react-query";
 import { toast } from "sonner";
+
+import { VotePollOption } from "@/services/vote-poll-option";
+import { PollOption } from "@/types/poll";
 
 type PollVoteOption = {
   disabled: boolean;
