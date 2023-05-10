@@ -2,6 +2,8 @@
 
 import { useQuery } from "@tanstack/react-query";
 import { notFound } from "next/navigation";
+import dayjs from "dayjs";
+import relativeTime from "dayjs/plugin/relativeTime";
 
 import { GetPollById } from "@/services/get-poll-by-id";
 import StatusPill, { PollStatus } from "./status-pill";
@@ -10,6 +12,8 @@ import LineLoader from "@components/loader/lineLoader";
 import { PollInfo } from "@/types/poll";
 import PollVoteOption from "./vote-option";
 import isPollFinished from "@/lib/date/isPollFinished";
+
+dayjs.extend(relativeTime);
 
 function PollPreview({ pollId }: { pollId: string }) {
   const { data, isError, isLoading, isRefetching, isFetching, error } =
@@ -30,6 +34,9 @@ function PollPreview({ pollId }: { pollId: string }) {
   const hasVoted = data.options.some((option) => option.userVotes.length > 0);
   const hasFinished = isPollFinished(data.endsAt);
   const totalVotes = data.options.reduce((a, b) => a + b.totalCount, 0);
+
+  const closedAgo = hasFinished && dayjs(data.endsAt).fromNow();
+  const closedIn = !hasFinished && dayjs(data.endsAt).toNow();
 
   return (
     <>
@@ -63,8 +70,13 @@ function PollPreview({ pollId }: { pollId: string }) {
               })}
             </div>
 
-            <footer className="flex items-center text-brand-subtext">
+            <footer className="flex items-center justify-between text-gray-400">
               <span>Created by {data.user.name}</span>
+              {hasFinished ? (
+                <span className="text-sm">Voting closed {closedAgo}.</span>
+              ) : (
+                <span className="text-sm">Voting ends in {closedIn}.</span>
+              )}
             </footer>
           </div>
 
