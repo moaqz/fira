@@ -6,8 +6,8 @@ import { GetPolls } from "@/services/get-polls";
 import type { Poll } from "@/types/poll";
 import PollCard from "@components/poll/card";
 import { ExclamationTriangleIcon } from "@ui/icons";
-import LineLoader from "@/components/loader/lineLoader";
 import { Button } from "@ui/index";
+import PollsFeedLoader from "@/components/loader/polls-feed-loader";
 
 function PollFeed() {
   const { data, isLoading, fetchNextPage, isFetching, isError, hasNextPage } =
@@ -23,7 +23,7 @@ function PollFeed() {
   const polls = data?.pages.flatMap((poll) => poll.polls);
 
   if (isLoading) {
-    return <LineLoader text="Fetching data..." />;
+    return <PollsFeedLoader />;
   }
 
   return (
