@@ -7,7 +7,7 @@ import { Button } from "@ui/index";
 import { BASE_URL } from "@lib/constants";
 
 function PollShareLink({ pollId }: { pollId: string }) {
-  const link = `${BASE_URL}/${pollId}`;
+  const link = `${BASE_URL}/poll/${pollId}`;
 
   const handleClick = async () => {
     try {
