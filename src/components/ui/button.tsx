@@ -37,16 +37,17 @@ function Button({
   return (
     <button
       className={clsx(
-        "flex items-center justify-center gap-3 rounded-md transition-colors duration-200 disabled:pointer-events-none disabled:opacity-75",
+        "flex items-center justify-center gap-3 rounded-md transition-colors duration-200",
         VARIANTS[variant],
         className,
         SIZES[size],
+        isDisabled && "disabled:pointer-events-none disabled:opacity-75",
       )}
       disabled={isDisabled || isLoading}
       type={type}
       {...props}
     >
-      {!isLoading ? children : <Spinner />}
+      {!isLoading ? children : <Spinner color="text-gray-900" />}
     </button>
   );
 }

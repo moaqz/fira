@@ -27,6 +27,7 @@ function LoginButton() {
       size="large"
       onClick={handleSignIn}
       isLoading={loading}
+      isDisabled={loading}
     >
       <GithubIcon /> Sign in with Github
     </Button>

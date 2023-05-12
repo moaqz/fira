@@ -44,6 +44,7 @@
 }
 
 @keyframes linearLoader {
+
   0%,
   100% {
     transform: translateX(-95%);
@@ -51,46 +52,5 @@
 
   50% {
     transform: translateX(95%);
-  }
-}
-
-.spinnerLoader {
-  height: 24px;
-  width: 24px;
-  vertical-align: middle;
-  transform-origin: center;
-  animation: rotate 2s linear infinite;
-  will-change: transform;
-}
-
-.spinnerLoader circle {
-  fill: none;
-  stroke: black;
-  stroke-dasharray: 1, 200;
-  stroke-dashoffset: 0;
-  stroke-linecap: round;
-  animation: stretch calc(2s * 0.75) ease-in-out infinite;
-  will-change: stroke-dasharray, stroke-dashoffset;
-}
-
-@keyframes rotate {
-  100% {
-    transform: rotate(360deg);
-  }
-}
-
-@keyframes stretch {
-  0% {
-    stroke-dasharray: 1, 200;
-    stroke-dashoffset: 0;
-  }
-
-  50% {
-    stroke-dasharray: 90, 200;
-    stroke-dashoffset: -35px;
-  }
-
-  100% {
-    stroke-dashoffset: -124px;
   }
 }
