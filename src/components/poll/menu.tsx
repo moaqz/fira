@@ -1,7 +1,16 @@
 import * as DropdownMenu from "@radix-ui/react-dropdown-menu";
+import dynamic from "next/dynamic";
 
 import { EllipsisVerticalIcon } from "@ui/icons";
-import DeleteButton from "./delete-button";
+import Spinner from "@components/loader/spinnerLoader";
+
+const DeleteButton = dynamic(() => import("./delete-button"), {
+  loading: () => (
+    <div className="flex items-center justify-center px-3">
+      <Spinner />
+    </div>
+  ),
+});
 
 function PollMenu({ pollId }: { pollId: string }) {
   return (
