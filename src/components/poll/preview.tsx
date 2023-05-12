@@ -12,9 +12,11 @@ import PollShareLink from "./share-link";
 import LineLoader from "@components/loader/lineLoader";
 import { PollInfo } from "@/types/poll";
 import PollVoteOption from "./vote-option";
-import PollMenu from "./menu";
+import dynamic from "next/dynamic";
 
 dayjs.extend(relativeTime);
+
+const PollMenu = dynamic(() => import("./menu"));
 
 function PollPreview({ pollId }: { pollId: string }) {
   const { data: session } = useSession();
