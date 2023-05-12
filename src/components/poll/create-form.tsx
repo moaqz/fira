@@ -95,6 +95,7 @@ function CreatePollForm() {
         className="mt-4 w-full"
         type="submit"
         isLoading={isLoading}
+        isDisabled={isLoading}
       >
         Create Poll
       </Button>

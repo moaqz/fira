@@ -6,6 +6,8 @@ import ExclamationTriangleIcon from "./exclamationTriangleIcon";
 import CancelIcon from "./cancelIcon";
 import PlusIcon from "./plusIcon";
 import ClipboardIcon from "./clipboardIcon";
+import EllipsisVerticalIcon from "./elipsisVerticalIcon";
+import TrashIcon from "./trashIcon";
 
 export {
   RocketIcon,
@@ -16,4 +18,6 @@ export {
   CancelIcon,
   PlusIcon,
   ClipboardIcon,
+  EllipsisVerticalIcon,
+  TrashIcon,
 };
