@@ -73,9 +73,10 @@ model Poll {
   user   User?   @relation(fields: [userId], references: [id], onDelete: SetNull)
 
   options        PollOption[]
-  pollOptionVote PollOptionVote[]
+  PollOptionVote PollOptionVote[]
 
   @@index([userId])
+  @@map(name: "polls")
 }
 
 model PollOption {
@@ -83,25 +84,26 @@ model PollOption {
   text       String?
   totalCount Int     @default(0)
 
-  Poll   Poll?   @relation(fields: [pollId], references: [id], onDelete: Cascade)
-  pollId String?
+  Poll   Poll   @relation(fields: [pollId], references: [id], onDelete: Cascade)
+  pollId String
 
   userVotes PollOptionVote[]
 
   @@index([pollId])
+  @@map(name: "poll_options")
 }
 
 model PollOptionVote {
-  pollId       String
-  userId       String
-  pollOptionId String?
+  user   User   @relation(fields: [userId], references: [id])
+  userId String
 
-  poll       Poll        @relation(fields: [pollId], references: [id])
-  user       User        @relation(fields: [userId], references: [id])
-  pollOption PollOption? @relation(fields: [pollOptionId], references: [id], onDelete: Cascade)
+  poll   Poll   @relation(fields: [pollId], references: [id], onDelete: Cascade)
+  pollId String
+
+  pollOption   PollOption @relation(fields: [pollOptionId], references: [id], onDelete: Cascade)
+  pollOptionId String
 
   @@id([userId, pollId])
   @@index([pollId])
-  @@index([userId])
-  @@index([pollOptionId])
+  @@map(name: "poll_option_votes")
 }
