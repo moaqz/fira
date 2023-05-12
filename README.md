@@ -19,7 +19,7 @@
 - [x] Users can create new poll.
 - [x] Users can vote on poll options.
 - [x] Users can view their polls.
-- [ ] Users can delete their polls.
+- [X] Users can delete their polls.
 
 ## [🔧] How to run it locally
 
