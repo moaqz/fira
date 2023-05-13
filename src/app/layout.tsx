@@ -5,7 +5,21 @@ import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Poll Maker - Fira",
-  description: "A poll maker application built with Next.js",
+  description: "A poll maker built with Next.js",
+  themeColor: "#cba6f7",
+  openGraph: {
+    title: "Poll Maker - Fira",
+    description: "A poll maker built with Next.js",
+    url: "https://fira.vercel.app/",
+    type: "website",
+    locale: "en",
+    siteName: "fira",
+    images: {
+      url: "https://fira.vercel.app/og.png",
+      width: 2300,
+      height: 288,
+    },
+  },
 };
 
 export default async function RootLayout({
