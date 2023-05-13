@@ -15,9 +15,9 @@ export const metadata: Metadata = {
     locale: "en",
     siteName: "fira",
     images: {
-      url: "https://fira.vercel.app/og.png",
-      width: 2300,
-      height: 288,
+      url: "https://fira.vercel.app/banner.png",
+      width: 1900,
+      height: 940,
     },
   },
 };
