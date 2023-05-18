@@ -1,14 +1,20 @@
-<div align="center">
-  <a href="https://fira.vercel.app">
-    <img src="public/banner.png">
-  </a>
-  <a href="https://fira.vercel.app">
-    <img src="public/dashboard.png">
-  </a>
-  <a href="https://fira.vercel.app">
-    <img src="public/poll-preview.png">
-  </a>
-</div>
+## [📷] Demo
+
+![Home](public/banner.png)
+
+### /dash
+
+![Dashboard](public/dashboard.png)
+
+### /poll/:id
+
+![Poll preview](public/poll-preview.png)
+
+### /create
+
+![Poll preview](public/create.png)
+
+###
 
 ## [📦] Built with:
 
