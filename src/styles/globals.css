@@ -44,7 +44,6 @@
 }
 
 @keyframes linearLoader {
-
   0%,
   100% {
     transform: translateX(-95%);

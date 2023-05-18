@@ -2,6 +2,12 @@
   <a href="https://fira.vercel.app">
     <img src="public/banner.png">
   </a>
+  <a href="https://fira.vercel.app">
+    <img src="public/dashboard.png">
+  </a>
+  <a href="https://fira.vercel.app">
+    <img src="public/poll-preview.png">
+  </a>
 </div>
 
 ## [📦] Built with:
@@ -19,7 +25,7 @@
 - [x] Users can create new poll.
 - [x] Users can vote on poll options.
 - [x] Users can view their polls.
-- [X] Users can delete their polls.
+- [x] Users can delete their polls.
 
 ## [🔧] How to run it locally
 
