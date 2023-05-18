@@ -1,15 +1,13 @@
 "use client";
 
-import { useState } from "react";
 import { type SubmitHandler, useForm } from "react-hook-form";
 import { toast } from "sonner";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useRouter } from "next/navigation";
 
-import { Button } from "@ui/index";
 import FormValidation from "@components/errors/form-validation";
 import PollOptions from "@components/poll/create-form-options";
-import { Input, Label, TextArea } from "@ui/index";
+import { Input, Label, TextArea, Button } from "@ui/index";
 import { createPoll } from "@/services/create-poll";
 import generateEndDate from "@/lib/date/generateEndDate";
 import {
@@ -19,14 +17,13 @@ import {
 
 function CreatePollForm() {
   const router = useRouter();
-  const [isLoading, setIsLoading] = useState(false);
 
   const {
     control,
     register,
     handleSubmit,
     reset,
-    formState: { errors },
+    formState: { errors, isSubmitting },
   } = useForm<CreatePoll>({
     defaultValues: {
       options: [{ text: "" }, { text: "" }],
@@ -35,8 +32,6 @@ function CreatePollForm() {
   });
 
   const onSubmit: SubmitHandler<CreatePoll> = async (data) => {
-    setIsLoading(true);
-
     try {
       const endDate = generateEndDate(data.endDate as string);
       const id = await createPoll({ ...data, endDate: endDate });
@@ -44,7 +39,6 @@ function CreatePollForm() {
       reset();
       router.push(`/poll/${id}`);
     } catch (error) {
-      setIsLoading(false);
       toast.error("An error occurred while creating the poll.");
     }
   };
@@ -94,8 +88,8 @@ function CreatePollForm() {
         variant="pink"
         className="mt-4 w-full"
         type="submit"
-        isLoading={isLoading}
-        isDisabled={isLoading}
+        isLoading={isSubmitting}
+        isDisabled={isSubmitting}
       >
         Create Poll
       </Button>
