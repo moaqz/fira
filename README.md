@@ -138,4 +138,4 @@ Open [http://localhost:3000](http://localhost:3000) in your web browser to acces
 
 ## [🔑] License
 
-- [MIT](https://github.com/techwithmat/fira/blob/main/LICENSE)
+- [MIT](https://github.com/moaqz/fira/blob/main/LICENSE)

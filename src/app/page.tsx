@@ -24,7 +24,7 @@ function Home() {
               <RocketIcon />
               Get Started
             </Link>
-            <ExternalLink href="https://github.com/techwithmat/fira">
+            <ExternalLink href="https://github.com/moaqz/fira">
               <StarIcon />
               Star on GitHub
             </ExternalLink>
