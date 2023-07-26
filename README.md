@@ -86,7 +86,7 @@ GITHUB_CLIENT_SECRET=
 
 ### **Running the Application:**
 
-10. Run in your terminal:
+1. Run in your terminal:
 
 ```bash
 npm run dev
