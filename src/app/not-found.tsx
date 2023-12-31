@@ -1,4 +1,4 @@
-import { Link, Footer } from "@ui/index";
+import { Footer, Link } from "@ui/index";
 
 function NotFound() {
   return (

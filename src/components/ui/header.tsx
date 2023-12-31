@@ -1,9 +1,9 @@
-import Image from "next/image";
 import { Session } from "next-auth";
+import Image from "next/image";
 
-import Logo from "@ui/logo";
-import { Link } from "@ui/link";
 import LogoutButton from "@components/auth/logout-button";
+import { Link } from "@ui/link";
+import Logo from "@ui/logo";
 
 function Header({ session }: { session: Session | null }) {
   return (

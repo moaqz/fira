@@ -1,9 +1,9 @@
-import dayjs from "dayjs";
-import Link from "next/link";
 import isPollFinished from "@/lib/date/isPollFinished";
+import type { Poll } from "@/types/poll";
 import StatusPill, { PollStatus } from "@components/poll/status-pill";
 import { UsersIcon } from "@ui/icons";
-import type { Poll } from "@/types/poll";
+import dayjs from "dayjs";
+import Link from "next/link";
 
 type PollCard = Omit<Poll, "userId" | "updatedAt" | "description">;
 

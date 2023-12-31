@@ -1,6 +1,6 @@
+import { fireEvent, render } from "@testing-library/react";
 import { vi } from "vitest";
-import { render, fireEvent } from "@testing-library/react";
-import Button, { VARIANTS, SIZES } from "../components/ui/button";
+import Button, { SIZES, VARIANTS } from "../components/ui/button";
 
 describe("Button", () => {
   it("renders the text content correctly", async () => {
@@ -44,10 +44,10 @@ describe("Button", () => {
       <Button size="large">Click me!</Button>,
     );
 
-    expect(getByRole("button")).toHaveClass(VARIANTS["gray"], SIZES["large"]);
+    expect(getByRole("button")).toHaveClass(VARIANTS.gray, SIZES.large);
 
     rerender(<Button variant="pink">Get started</Button>);
 
-    expect(getByRole("button")).toHaveClass(VARIANTS["pink"], SIZES["medium"]);
+    expect(getByRole("button")).toHaveClass(VARIANTS.pink, SIZES.medium);
   });
 });

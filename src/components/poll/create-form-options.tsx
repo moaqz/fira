@@ -5,10 +5,10 @@ import {
   useFieldArray,
 } from "react-hook-form";
 
+import type { CreatePoll } from "@/lib/validations/createPoll";
+import PollOption from "@components/poll/create-form-option";
 import { PlusIcon } from "@ui/icons";
 import { Button } from "@ui/index";
-import PollOption from "@components/poll/create-form-option";
-import type { CreatePoll } from "@/lib/validations/createPoll";
 
 function PollOptions({
   control,

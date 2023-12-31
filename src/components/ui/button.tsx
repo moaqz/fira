@@ -1,6 +1,6 @@
-import { ButtonHTMLAttributes, ReactNode } from "react";
-import clsx from "clsx";
 import Spinner from "@components/loader/spinnerLoader";
+import clsx from "clsx";
+import { ButtonHTMLAttributes, ReactNode } from "react";
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   type?: "submit" | "button";

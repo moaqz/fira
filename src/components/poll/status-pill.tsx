@@ -6,8 +6,8 @@ const STATUS = {
 };
 
 export enum PollStatus {
-  "CLOSED" = "closed",
-  "LIVE" = "live",
+  CLOSED = "closed",
+  LIVE = "live",
 }
 
 function StatusPill({ status }: { status: "closed" | "live" }) {
@@ -21,7 +21,7 @@ function StatusPill({ status }: { status: "closed" | "live" }) {
       )}
     >
       <svg className="h-2 w-2" fill="currentColor" viewBox="0 0 8 8">
-        <circle cx="4" cy="4" r="3"></circle>
+        <circle cx="4" cy="4" r="3" />
       </svg>
       {statusText}
     </span>

@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 
-import Footer from "@ui/footer";
 import LoginButton from "@/components/auth/login-button";
+import Footer from "@ui/footer";
 
 export const metadata: Metadata = {
   title: "Log in to your account",

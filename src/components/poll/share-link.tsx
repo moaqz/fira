@@ -2,9 +2,9 @@
 
 import { toast } from "sonner";
 
+import { BASE_URL } from "@lib/constants";
 import { ClipboardIcon } from "@ui/icons";
 import { Button } from "@ui/index";
-import { BASE_URL } from "@lib/constants";
 
 function PollShareLink({ pollId }: { pollId: string }) {
   const link = `${BASE_URL}/poll/${pollId}`;
@@ -14,7 +14,6 @@ function PollShareLink({ pollId }: { pollId: string }) {
       await navigator.clipboard.writeText(link);
       toast.success("Link copied to clipboard!");
     } catch (error) {
-      console.log(error);
       toast.error("An error occurred while logout. Please try later.");
     }
   };

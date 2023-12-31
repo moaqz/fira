@@ -1,6 +1,6 @@
+import clsx from "clsx";
 import NextLink from "next/link";
 import { VARIANTS } from "./button";
-import clsx from "clsx";
 
 interface LinkProps {
   href: string;

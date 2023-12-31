@@ -1,8 +1,8 @@
 import * as DropdownMenu from "@radix-ui/react-dropdown-menu";
 import dynamic from "next/dynamic";
 
-import { EllipsisVerticalIcon } from "@ui/icons";
 import Spinner from "@components/loader/spinnerLoader";
+import { EllipsisVerticalIcon } from "@ui/icons";
 
 const DeleteButton = dynamic(() => import("./delete-button"), {
   loading: () => (
@@ -17,6 +17,7 @@ function PollMenu({ pollId }: { pollId: string }) {
     <DropdownMenu.Root>
       <DropdownMenu.Trigger asChild>
         <button
+          type="button"
           className="flex items-center justify-center rounded-md px-3 py-2 text-zinc-400 transition-colors hover:bg-brand-surface"
           aria-label="Open menu"
         >

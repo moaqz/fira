@@ -1,4 +1,4 @@
-import { forwardRef, Ref, TextareaHTMLAttributes } from "react";
+import { Ref, TextareaHTMLAttributes, forwardRef } from "react";
 
 const TextArea = forwardRef(
   (

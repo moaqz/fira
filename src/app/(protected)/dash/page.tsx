@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 
-import { Link } from "@ui/index";
-import { PlusIcon } from "@ui/icons";
 import PollFeed from "@/components/poll/poll-feed";
+import { PlusIcon } from "@ui/icons";
+import { Link } from "@ui/index";
 
 export const metadata: Metadata = {
   title: "Dashboard - Fira",

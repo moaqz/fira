@@ -1,18 +1,18 @@
 "use client";
 
 import { useQuery } from "@tanstack/react-query";
-import { notFound } from "next/navigation";
 import dayjs from "dayjs";
 import relativeTime from "dayjs/plugin/relativeTime";
 import { useSession } from "next-auth/react";
+import { notFound } from "next/navigation";
 
 import { GetPollById } from "@/services/get-poll-by-id";
-import StatusPill, { PollStatus } from "./status-pill";
-import PollShareLink from "./share-link";
-import LineLoader from "@components/loader/lineLoader";
 import { PollInfo } from "@/types/poll";
-import PollVoteOption from "./vote-option";
+import LineLoader from "@components/loader/lineLoader";
 import dynamic from "next/dynamic";
+import PollShareLink from "./share-link";
+import StatusPill, { PollStatus } from "./status-pill";
+import PollVoteOption from "./vote-option";
 
 dayjs.extend(relativeTime);
 

@@ -1,4 +1,4 @@
-import { InputHTMLAttributes, forwardRef, Ref } from "react";
+import { InputHTMLAttributes, Ref, forwardRef } from "react";
 
 const Input = forwardRef(
   (

@@ -16,14 +16,14 @@ function RocketIcon() {
         strokeWidth="1"
         strokeLinecap="round"
         strokeLinejoin="round"
-      ></path>
+      />
       <path
         d="M12 11a2 2 0 110-4 2 2 0 010 4z"
         stroke="currentColor"
         strokeWidth="1"
         strokeLinecap="round"
         strokeLinejoin="round"
-      ></path>
+      />
     </svg>
   );
 }

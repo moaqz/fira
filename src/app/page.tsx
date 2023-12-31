@@ -1,5 +1,5 @@
 import { RocketIcon, StarIcon } from "@ui/icons";
-import { Link, ExternalLink, Footer } from "@ui/index";
+import { ExternalLink, Footer, Link } from "@ui/index";
 
 function Home() {
   return (

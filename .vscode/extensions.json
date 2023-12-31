@@ -1,7 +1,8 @@
 {
   "recommendations": [
-    "esbenp.prettier-vscode",
     "prisma.prisma",
-    "bradlc.vscode-tailwindcss"
+    "bradlc.vscode-tailwindcss",
+    "redhat.vscode-yaml",
+    "biomejs.biome"
   ]
 }

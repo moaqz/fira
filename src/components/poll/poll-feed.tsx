@@ -2,12 +2,12 @@
 
 import { useInfiniteQuery } from "@tanstack/react-query";
 
+import PollsFeedLoader from "@/components/loader/polls-feed-loader";
 import { GetPolls } from "@/services/get-polls";
 import type { Poll } from "@/types/poll";
 import PollCard from "@components/poll/card";
 import { ExclamationTriangleIcon } from "@ui/icons";
 import { Button } from "@ui/index";
-import PollsFeedLoader from "@/components/loader/polls-feed-loader";
 
 function PollFeed() {
   const { data, isLoading, fetchNextPage, isFetching, isError, hasNextPage } =

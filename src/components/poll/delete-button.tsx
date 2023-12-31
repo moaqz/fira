@@ -3,8 +3,8 @@ import { useState } from "react";
 
 import { TrashIcon } from "@ui/icons";
 import { Button } from "@ui/index";
-import { toast } from "sonner";
 import { useRouter } from "next/navigation";
+import { toast } from "sonner";
 
 function DeleteButton({ pollId }: { pollId: string }) {
   const [isDeleting, setIsDeleting] = useState(false);
@@ -33,6 +33,7 @@ function DeleteButton({ pollId }: { pollId: string }) {
     <AlertDialog.Root>
       <AlertDialog.Trigger asChild>
         <button
+          type="button"
           className="flex h-10 w-full select-none items-center gap-3 px-4 font-semibold text-red-400 outline-none transition-colors hover:bg-brand-surface"
           aria-label="Delete poll"
         >

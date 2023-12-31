@@ -1,6 +1,6 @@
+import { useQueryClient } from "@tanstack/react-query";
 import clsx from "clsx";
 import { useState } from "react";
-import { useQueryClient } from "@tanstack/react-query";
 import { toast } from "sonner";
 
 import { VotePollOption } from "@/services/vote-poll-option";
@@ -45,6 +45,7 @@ function PollVoteOption({
 
   return (
     <button
+      type="button"
       className={clsx(
         "flex items-center justify-between gap-2 rounded border border-brand-surface px-3 py-2.5",
         hasVotedOption ? "bg-brand-surface" : "bg-brand-crust",

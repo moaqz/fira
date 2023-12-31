@@ -1,6 +1,6 @@
 import { getUserSession } from "@/lib/get-user-session";
-import { NextResponse } from "next/server";
 import prisma from "@/lib/prisma";
+import { NextResponse } from "next/server";
 
 export async function DELETE(
   _request: Request,
@@ -21,7 +21,6 @@ export async function DELETE(
       },
     });
 
-    console.log(poll);
 
     if (poll == null) {
       return NextResponse.json("Poll not found", { status: 404 });
@@ -41,7 +40,6 @@ export async function DELETE(
 
     return NextResponse.json("Poll deleted", { status: 200 });
   } catch (error) {
-    console.log(error);
     return NextResponse.json("Internal Server Error", { status: 505 });
   }
 }

@@ -1,11 +1,11 @@
 "use client";
 
-import { toast } from "sonner";
 import { signIn } from "next-auth/react";
 import { useState } from "react";
+import { toast } from "sonner";
 
-import { Button } from "@ui/index";
 import { GithubIcon } from "@ui/icons";
+import { Button } from "@ui/index";
 
 function LoginButton() {
   const [loading, setLoading] = useState(false);
@@ -14,7 +14,7 @@ function LoginButton() {
     setLoading(true);
 
     try {
-      await signIn("github", { callbackUrl: `/dash` });
+      await signIn("github", { callbackUrl: "/dash" });
     } catch (error) {
       setLoading(false);
       toast.error("Unable to log in. Please try again later.");

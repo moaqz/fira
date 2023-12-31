@@ -4,10 +4,10 @@ import {
   UseFormRegister,
 } from "react-hook-form";
 
-import { Input } from "@ui/index";
 import type { CreatePoll } from "@/lib/validations/createPoll";
 import FormValidation from "@components/errors/form-validation";
 import { CancelIcon } from "@ui/icons";
+import { Input } from "@ui/index";
 
 function PollOption({
   index,
