@@ -1,0 +1,10 @@
+version: "3.8"
+
+services:
+  db:
+    image: postgres:alpine3.19
+    restart: always
+    environment: 
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
+    ports:
+      - 5432:5432
